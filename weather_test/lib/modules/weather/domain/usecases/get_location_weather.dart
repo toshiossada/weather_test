@@ -11,7 +11,7 @@ class GetLocationWeather {
     final location = await weatherRepository.getPosition(city, state);
     final weathers = <WeatherEntity>[];
 
-    Future.forEach([
+    await Future.forEach([
       weatherRepository.getCurrentWeather(location),
       weatherRepository.getNesxtFiveDaysWeather(location)
     ], (element) {

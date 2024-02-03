@@ -8,7 +8,7 @@ import 'datasources/weather_datasource_interface.dart';
 import 'models/weather_model.dart';
 
 class WeatherRepository implements IWeatherRepository {
-  final IWeatherDataSource dataSource;
+  final IWeatherDatasource dataSource;
   final BaseMapper<LocationEntity, LocationModel> locationMapper;
   final BaseMapper<WeatherEntity, WeatherModel> weatherMapper;
 

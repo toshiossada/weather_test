@@ -3,17 +3,17 @@ import '../repositories/datasources/weather_datasource_interface.dart';
 import '../repositories/models/location_model.dart';
 import '../repositories/models/weather_model.dart';
 
-class WeatherDataSource implements IWeatherDataSource {
+class WeatherDatasource implements IWeatherDatasource {
   final IHttpClientAdapter client;
-
-  WeatherDataSource({
+  final apiKey = '441a3d690588c5e9057e0a640bdafb87';
+  WeatherDatasource({
     required this.client,
   });
 
   @override
   Future<LocationModel> getPosition(String city, String state) async {
     final request = await client.get(
-      'api.openweathermap.org/data/2.5/weather?q=$city,$state&APPID=441a3d690588c5e9057e0a640bdafb87',
+      'api.openweathermap.org/data/2.5/weather?q=$city,$state&APPID=$apiKey',
     );
 
     return LocationModel.fromMap(request.data);
@@ -22,7 +22,7 @@ class WeatherDataSource implements IWeatherDataSource {
   @override
   Future<WeatherModel> getCurrentWeather(LocationModel location) async {
     final request = await client.get(
-      'https://api.openweathermap.org/data/2.5/weather?lon=-46.6361&lat=-23.5475&appid=441a3d690588c5e9057e0a640bdafb87',
+      'https://api.openweathermap.org/data/2.5/weather?lon=${location.longitude}&lat=${location.latitude}&appid=$apiKey',
     );
 
     return WeatherModel.fromMap(request.data);
@@ -30,9 +30,10 @@ class WeatherDataSource implements IWeatherDataSource {
 
   @override
   Future<List<WeatherModel>> getNesxtFiveDaysWeather(
-      LocationModel location) async {
+    LocationModel location,
+  ) async {
     final request = await client.get(
-      'https://api.openweathermap.org/data/2.5/weather?lon=-46.6361&lat=-23.5475&appid=441a3d690588c5e9057e0a640bdafb87',
+      'https://api.openweathermap.org/data/2.5/weather?lon=${location.longitude}&lat=${location.latitude}&appid=$apiKey',
     );
 
     return request.data['list'].map((e) => WeatherModel.fromMap(e)).toList();
