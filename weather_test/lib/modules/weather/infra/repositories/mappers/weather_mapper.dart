@@ -13,6 +13,7 @@ final class WeatherMapper extends BaseMapper<WeatherEntity, WeatherModel> {
       humidity: model.humidity,
       description: model.description,
       dateTime: model.dateTime,
+      main: model.main,
     );
   }
 
@@ -26,6 +27,7 @@ final class WeatherMapper extends BaseMapper<WeatherEntity, WeatherModel> {
       humidity: entity.humidity,
       description: entity.description,
       dateTime: entity.dateTime,
+      main: entity.main.capitilize(),
     );
   }
 }

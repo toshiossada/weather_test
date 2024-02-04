@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'adapters/cache_adapter/cache_adapter.dart';
 import 'adapters/cache_adapter/cache_hive/cache_hive.dart';
-import 'adapters/http_adapter/dio/Interceptor/common_Interceptor.dart';
+import 'adapters/http_adapter/dio/Interceptor/common_interceptor.dart';
 import 'adapters/http_adapter/dio/dio_adapter.dart';
 import 'adapters/http_adapter/http_client_adapter.dart';
 import 'consts.dart';

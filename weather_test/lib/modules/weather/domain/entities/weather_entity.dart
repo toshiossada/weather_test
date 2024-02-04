@@ -1,4 +1,4 @@
-import 'package:collection/collection.dart';
+import '../enums/weather_enum.dart';
 
 class WeatherEntity {
   final double temp;
@@ -8,6 +8,8 @@ class WeatherEntity {
   final int humidity;
   final String description;
   final DateTime dateTime;
+  final String _main;
+  WeatherEnum get main => WeatherEnum.fromString(_main);
 
   WeatherEntity({
     required this.temp,
@@ -17,8 +19,6 @@ class WeatherEntity {
     required this.humidity,
     required this.description,
     required this.dateTime,
-  });
-
-
-
+    required String main,
+  }) : _main = main;
 }

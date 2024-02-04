@@ -1,5 +1,5 @@
-import '../../domain/usecases/get_location_weather.dart';
-import '../stores/location_store.dart';
+import '../../../domain/usecases/get_location_weather.dart';
+import '../../stores/location_store.dart';
 import 'home_store.dart';
 
 class HomeController {

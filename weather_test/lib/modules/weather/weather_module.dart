@@ -13,9 +13,9 @@ import 'infra/repositories/mappers/weather_mapper.dart';
 import 'infra/repositories/models/location_model.dart';
 import 'infra/repositories/models/weather_model.dart';
 import 'infra/repositories/weather_repository.dart';
-import 'presentation/home/home_controller.dart';
-import 'presentation/home/home_page.dart';
-import 'presentation/home/home_store.dart';
+import 'presentation/pages/home/home_controller.dart';
+import 'presentation/pages/home/home_page.dart';
+import 'presentation/pages/home/home_store.dart';
 import 'presentation/stores/location_store.dart';
 
 class WeatherModule extends Module {
