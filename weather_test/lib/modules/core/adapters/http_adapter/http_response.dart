@@ -2,7 +2,7 @@ class HttpResponse {
   final dynamic data;
   final int statusCode;
 
-  HttpResponse({
+  const HttpResponse({
     this.data,
     required this.statusCode,
   });

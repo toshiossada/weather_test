@@ -11,7 +11,7 @@ class WeatherRepository implements IWeatherRepository {
   final BaseMapper<LocationEntity, LocationModel> locationMapper;
   final BaseMapper<WeatherEntity, WeatherModel> weatherMapper;
 
-  WeatherRepository({
+  const WeatherRepository({
     required this.dataSource,
     required this.locationMapper,
     required this.weatherMapper,

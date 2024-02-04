@@ -30,7 +30,7 @@ class DioAdapter implements IHttpClientAdapter {
         options: Options(headers: headers),
       );
       final response = HttpResponse(
-        data: result.data is String ?  json.decode(result.data) : result.data,
+        data: result.data is String ? json.decode(result.data) : result.data,
         statusCode: result.statusCode ?? 200,
       );
       return response;

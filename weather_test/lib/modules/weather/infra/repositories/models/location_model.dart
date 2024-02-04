@@ -4,7 +4,7 @@ class LocationModel {
   final double latitude;
   final double longitude;
 
-  LocationModel({
+  const LocationModel({
     required this.id,
     required this.name,
     required this.latitude,

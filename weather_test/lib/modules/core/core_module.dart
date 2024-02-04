@@ -15,29 +15,29 @@ class CoreModule extends Module {
     const apiKey = String.fromEnvironment('API_KEY');
     const baseUrl = String.fromEnvironment('BASE_URL');
 
-    i.addInstance<Consts>(
-      Consts(
-        baseUrl: baseUrl,
-        apiKey: apiKey,
-      ),
-    );
-
-    i.addInstance<Dio>(Dio(BaseOptions(
-      baseUrl: i<Consts>().baseUrl, //config.baseUrlLogin,
-    )));
-    i.add<ICacheAdapter>(CacheHive.new);
-    i.add<CheckInternetUsecase>(CheckInternetUsecase.new);
-    i.addInstance<List<InterceptorsWrapper>>([
-      CommonInterceptor(
-          cacheAdapter: i(),
-          checkInternetUsecase: i(),
-          durationCache: const Duration(minutes: 1)),
-    ]);
-    i.addInstance<IHttpClientAdapter>(
-      DioAdapter(
-        dio: i<Dio>(),
-        interceptors: i<List<InterceptorsWrapper>>(),
-      ),
-    );
+    i
+      ..addInstance<Consts>(
+        const Consts(
+          baseUrl: baseUrl,
+          apiKey: apiKey,
+        ),
+      )
+      ..addInstance<Dio>(Dio(BaseOptions(
+        baseUrl: i<Consts>().baseUrl, //config.baseUrlLogin,
+      )))
+      ..add<ICacheAdapter>(CacheHive.new)
+      ..add<CheckInternetUsecase>(CheckInternetUsecase.new)
+      ..addInstance<List<InterceptorsWrapper>>([
+        CommonInterceptor(
+            cacheAdapter: i(),
+            checkInternetUsecase: i(),
+            durationCache: const Duration(minutes: 1)),
+      ])
+      ..addInstance<IHttpClientAdapter>(
+        DioAdapter(
+          dio: i<Dio>(),
+          interceptors: i<List<InterceptorsWrapper>>(),
+        ),
+      );
   }
 }

@@ -10,7 +10,7 @@ class WeatherModel {
   final String main;
   final DateTime dateTime;
 
-  WeatherModel({
+  const WeatherModel({
     required this.temp,
     required this.main,
     required this.feelsLike,

@@ -8,7 +8,7 @@ class HttpClientError implements Exception {
   final dynamic response;
   final dynamic type;
 
-  HttpClientError({
+  const HttpClientError({
     this.data,
     required this.message,
     required this.statusCode,

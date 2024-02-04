@@ -11,7 +11,7 @@ class LocationEntity {
   final double longitude;
   final List<WeatherEntity> _weathers;
 
-  LocationEntity({
+  const LocationEntity({
     this.id = 0,
     this.name = '',
     this.latitude = 0,

@@ -27,7 +27,7 @@ final class WeatherMapper extends BaseMapper<WeatherEntity, WeatherModel> {
       humidity: entity.humidity,
       description: entity.description,
       dateTime: entity.dateTime,
-      main: entity.main.capitilize(),
+      main: entity.main.capitalize(),
     );
   }
 }

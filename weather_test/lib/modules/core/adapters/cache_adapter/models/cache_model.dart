@@ -5,7 +5,7 @@ class CacheModel {
   final DateTime date;
   final Map<dynamic, dynamic> data;
 
-  CacheModel({
+  const CacheModel({
     required this.id,
     required this.date,
     required this.data,

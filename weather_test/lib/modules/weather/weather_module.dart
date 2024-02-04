@@ -28,36 +28,38 @@ class WeatherModule extends Module {
 
   @override
   void binds(i) {
-    i.add<BaseMapper<LocationEntity, LocationModel>>(LocationMapper.new);
-    i.add<BaseMapper<WeatherEntity, WeatherModel>>(WeatherMapper.new);
-    i.add<IWeatherDatasource>(WeatherDatasource.new);
     // i.add<IWeatherRepository>(WeatherRepository.new);
-    i.add<IWeatherRepository>(() => WeatherRepository(
-          dataSource: i.get(),
-          locationMapper: i.get(),
-          weatherMapper: i.get(),
-        ));
-    i.add(GetLocationWeather.new);
-    i.addLazySingleton(LoctionStore.new);
-    i.addLazySingleton(HomeStore.new);
-    i.add<HomeController>(HomeController.new);
-    i.add<DetailsController>(DetailsController.new);
+    i
+      ..add<BaseMapper<LocationEntity, LocationModel>>(LocationMapper.new)
+      ..add<BaseMapper<WeatherEntity, WeatherModel>>(WeatherMapper.new)
+      ..add<IWeatherDatasource>(WeatherDatasource.new)
+      ..add<IWeatherRepository>(() => WeatherRepository(
+            dataSource: i.get(),
+            locationMapper: i.get(),
+            weatherMapper: i.get(),
+          ))
+      ..add(GetLocationWeather.new)
+      ..addLazySingleton(LoctionStore.new)
+      ..addLazySingleton(HomeStore.new)
+      ..add<HomeController>(HomeController.new)
+      ..add<DetailsController>(DetailsController.new);
   }
 
   @override
   void routes(r) {
-    r.child(
-      '/',
-      child: (context) => HomePage(
-        controller: Modular.get<HomeController>(),
-      ),
-    );
-    r.child(
-      '/details/:city',
-      child: (context) => DetailPage(
-        city: int.parse(r.args.params['city']),
-        controller: Modular.get<DetailsController>(),
-      ),
-    );
+    r
+      ..child(
+        '/',
+        child: (context) => HomePage(
+          controller: Modular.get<HomeController>(),
+        ),
+      )
+      ..child(
+        '/details/:city',
+        child: (context) => DetailPage(
+          city: int.parse(r.args.params['city']),
+          controller: Modular.get<DetailsController>(),
+        ),
+      );
   }
 }

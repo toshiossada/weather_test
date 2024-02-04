@@ -8,7 +8,7 @@ class WeatherDatasource implements IWeatherDatasource {
   final IHttpClientAdapter client;
   final Consts consts;
 
-  WeatherDatasource({
+  const WeatherDatasource({
     required this.client,
     required this.consts,
   });
