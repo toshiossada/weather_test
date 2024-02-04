@@ -1,17 +1,19 @@
+import 'package:collection/collection.dart';
+
 import 'weather_entity.dart';
 
 class LocationEntity {
   final String name;
   final double latitude;
   final double longitude;
-  final List<WeatherEntity> weathers;
+  final List<WeatherEntity> _weathers;
 
   LocationEntity({
-    required this.name,
-    required this.latitude,
-    required this.longitude,
-    this.weathers = const [],
-  });
+    this.name = '',
+    this.latitude = 0,
+    this.longitude = 0,
+    List<WeatherEntity> weathers = const [],
+  }) : _weathers = weathers;
 
   LocationEntity copyWith({
     String? name,
@@ -23,7 +25,10 @@ class LocationEntity {
       name: name ?? this.name,
       latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
-      weathers: weathers ?? this.weathers,
+      weathers: weathers ?? _weathers,
     );
   }
+
+  Map<int, List<WeatherEntity>> get weathers =>
+      _weathers.groupListsBy((element) => element.dateTime.day);
 }

@@ -11,6 +11,8 @@ final class WeatherMapper extends BaseMapper<WeatherEntity, WeatherModel> {
       tempMin: model.tempMin,
       tempMax: model.tempMax,
       humidity: model.humidity,
+      description: model.description,
+      dateTime: model.dateTime,
     );
   }
 
@@ -22,6 +24,8 @@ final class WeatherMapper extends BaseMapper<WeatherEntity, WeatherModel> {
       tempMin: entity.tempMin,
       tempMax: entity.tempMax,
       humidity: entity.humidity,
+      description: entity.description,
+      dateTime: entity.dateTime,
     );
   }
 }

@@ -6,6 +6,8 @@ class WeatherModel {
   final double tempMin;
   final double tempMax;
   final int humidity;
+  final String description;
+  final DateTime dateTime;
 
   WeatherModel({
     required this.temp,
@@ -13,15 +15,19 @@ class WeatherModel {
     required this.tempMin,
     required this.tempMax,
     required this.humidity,
+    required this.description,
+    required this.dateTime,
   });
 
   factory WeatherModel.fromMap(Map<String, dynamic> map) {
     return WeatherModel(
-      temp: (map['temp'] ?? 0) as double,
-      feelsLike: (map['feels_like'] ?? 0) as double,
-      tempMin: (map['temp_min'] ?? 0) as double,
-      tempMax: (map['temp_max'] ?? 0) as double,
-      humidity: (map['humidity'] ?? 0) as int,
+      temp: (map['main']['temp'] * 1.0),
+      feelsLike: (map['main']['feels_like'] * 1.0),
+      tempMin: (map['main']['temp_min'] * 1.0),
+      tempMax: (map['main']['temp_max'] * 1.0),
+      humidity: map['main']['humidity'],
+      description: map['weather'].first['description'],
+      dateTime: DateTime.fromMillisecondsSinceEpoch(map['dt'] * 1000),
     );
   }
 }

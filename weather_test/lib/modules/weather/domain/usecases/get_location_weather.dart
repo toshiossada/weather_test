@@ -7,20 +7,14 @@ class GetLocationWeather {
 
   GetLocationWeather(this.weatherRepository);
 
-  Future<LocationEntity> call(String city, String state) async {
-    final location = await weatherRepository.getPosition(city, state);
+  Future<LocationEntity> call(String city, String country) async {
+    final location = await weatherRepository.getPosition(city, country);
     final weathers = <WeatherEntity>[];
 
-    await Future.forEach([
-      weatherRepository.getCurrentWeather(location),
-      weatherRepository.getNesxtFiveDaysWeather(location)
-    ], (element) {
-      if (element is List<WeatherEntity>) {
-        weathers.addAll(element as List<WeatherEntity>);
-      } else if (element is WeatherEntity) {
-        weathers.add(element as WeatherEntity);
-      }
-    });
+    final current = await weatherRepository.getCurrentWeather(location);
+    final next5Days = await weatherRepository.getNextFiveDaysWeather(location);
+    weathers.add(current);
+    weathers.addAll(next5Days);
 
     return location.copyWith(weathers: weathers);
   }

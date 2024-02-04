@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart';
 
 import '../http_client_adapter.dart';
@@ -12,7 +14,18 @@ class DioAdapter implements IHttpClientAdapter {
     required this.dio,
     this.interceptors = const [],
   }) {
+    // final options = CacheOptions(
+    //   store: MemCacheStore(),
+    //   policy: CachePolicy.forceCache,
+    //   hitCacheOnErrorExcept: [401, 403],
+    //   maxStale: const Duration(days: 1),
+    //   priority: CachePriority.normal,
+    //   cipher: null,
+    //   keyBuilder: CacheOptions.defaultCacheKeyBuilder,
+    //   allowPostMethod: false,
+    // );
     if (interceptors.isNotEmpty) dio.interceptors.addAll(interceptors);
+    // dio.interceptors.add(DioCacheInterceptor(options: options));
   }
 
   @override
@@ -28,7 +41,7 @@ class DioAdapter implements IHttpClientAdapter {
         options: Options(headers: headers),
       );
       final response = HttpResponse(
-        data: result.data,
+        data: result.data is String ?  json.decode(result.data) : result.data,
         statusCode: result.statusCode ?? 200,
       );
       return response;

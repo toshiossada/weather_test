@@ -1,10 +1,9 @@
-import 'package:weather_test/modules/weather/infra/repositories/models/location_model.dart';
-
 import '../../../core/base_mapper.dart';
 import '../../domain/entities/location_entity.dart';
 import '../../domain/entities/weather_entity.dart';
 import '../../domain/repositories/weather_repository_interface.dart';
 import 'datasources/weather_datasource_interface.dart';
+import 'models/location_model.dart';
 import 'models/weather_model.dart';
 
 class WeatherRepository implements IWeatherRepository {
@@ -19,8 +18,8 @@ class WeatherRepository implements IWeatherRepository {
   });
 
   @override
-  Future<LocationEntity> getPosition(String city, String state) async {
-    final result = await dataSource.getPosition(city, state);
+  Future<LocationEntity> getPosition(String city, String country) async {
+    final result = await dataSource.getPosition(city, country);
 
     return locationMapper.toEntity(result);
   }
@@ -34,10 +33,10 @@ class WeatherRepository implements IWeatherRepository {
   }
 
   @override
-  Future<List<WeatherEntity>> getNesxtFiveDaysWeather(
+  Future<List<WeatherEntity>> getNextFiveDaysWeather(
       LocationEntity location) async {
     final locationModel = locationMapper.toModel(location);
-    final result = await dataSource.getNesxtFiveDaysWeather(locationModel);
+    final result = await dataSource.getNextFiveDaysWeather(locationModel);
 
     return result.map((e) => weatherMapper.toEntity(e)).toList();
   }
