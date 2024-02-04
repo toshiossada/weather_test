@@ -14,10 +14,11 @@ class CommonInterceptor extends InterceptorsWrapper {
   final ICacheAdapter cacheAdapter;
   final CheckInternetUsecase checkInternetUsecase;
 
-  CommonInterceptor(
-      {required this.cacheAdapter,
-      required this.checkInternetUsecase,
-      this.durationCache = const Duration(minutes: 5)});
+  CommonInterceptor({
+    required this.cacheAdapter,
+    required this.checkInternetUsecase,
+    this.durationCache = const Duration(minutes: 5),
+  });
 
   @override
   Future<void> onRequest(
@@ -81,7 +82,7 @@ class CommonInterceptor extends InterceptorsWrapper {
           '${response.requestOptions.method}${response.requestOptions.path}';
       var dataCached = await cacheAdapter.get(id);
 
-      // Se passou de 5 minutos, atualiza o cache
+
       if (dataCached?.date == null ||
           DateTime.now().difference(dataCached?.date ?? DateTime.now()) >
               durationCache) {

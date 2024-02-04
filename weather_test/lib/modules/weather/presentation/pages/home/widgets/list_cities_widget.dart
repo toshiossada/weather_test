@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 import 'package:intl/intl.dart';
 
 import '../../../../domain/entities/location_entity.dart';
@@ -17,10 +18,12 @@ class ListCitiesWidget extends StatelessWidget {
       leading: Icon(main.icon),
       trailing: IconButton(
         icon: const Icon(Icons.navigate_next),
-        onPressed: () {},
+        onPressed: () {
+          Modular.to.pushNamed('details', arguments: location);
+        },
       ),
       title: Text(
-        location.name,
+        '${location.name}, ${location.country}',
         style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
       children: [

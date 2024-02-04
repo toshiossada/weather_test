@@ -14,12 +14,18 @@ class HomeController {
   });
 
   Future<void> init() async {
-    store.loading = true;
-    await getLocation('São Paulo', 'Brazil');
-    await getLocation('Silverstone', 'UK');
-    await getLocation('Melbourne', 'Australia');
-    await getLocation('Monte Carlo', 'Monaco');
-    store.loading = false;
+    try {
+      store.loading = true;
+
+      await Future.wait([
+        getLocation('São Paulo', 'Brazil'),
+        getLocation('Silverstone', 'UK'),
+        getLocation('Melbourne', 'Australia'),
+        getLocation('Monte Carlo', 'Monaco'),
+      ]);
+    } finally {
+      store.loading = false;
+    }
   }
 
   Future<void> getLocation(String city, String state) async {

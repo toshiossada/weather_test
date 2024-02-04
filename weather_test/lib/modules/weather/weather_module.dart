@@ -13,6 +13,7 @@ import 'infra/repositories/mappers/weather_mapper.dart';
 import 'infra/repositories/models/location_model.dart';
 import 'infra/repositories/models/weather_model.dart';
 import 'infra/repositories/weather_repository.dart';
+import 'presentation/pages/details/detail_page.dart';
 import 'presentation/pages/home/home_controller.dart';
 import 'presentation/pages/home/home_page.dart';
 import 'presentation/pages/home/home_store.dart';
@@ -47,6 +48,12 @@ class WeatherModule extends Module {
       '/',
       child: (context) => HomePage(
         controller: Modular.get<HomeController>(),
+      ),
+    );
+    r.child(
+      '/details',
+      child: (context) => DetailPage(
+        location: r.args.data,
       ),
     );
   }

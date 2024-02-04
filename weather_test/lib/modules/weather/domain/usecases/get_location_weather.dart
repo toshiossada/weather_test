@@ -16,6 +16,9 @@ class GetLocationWeather {
     weathers.add(current);
     weathers.addAll(next5Days);
 
-    return location.copyWith(weathers: weathers);
+    return location.copyWith(
+      weathers: weathers,
+      country: country,
+    );
   }
 }
