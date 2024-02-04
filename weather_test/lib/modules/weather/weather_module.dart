@@ -14,6 +14,7 @@ import 'infra/repositories/models/location_model.dart';
 import 'infra/repositories/models/weather_model.dart';
 import 'infra/repositories/weather_repository.dart';
 import 'presentation/pages/details/detail_page.dart';
+import 'presentation/pages/details/details_controller.dart';
 import 'presentation/pages/home/home_controller.dart';
 import 'presentation/pages/home/home_page.dart';
 import 'presentation/pages/home/home_store.dart';
@@ -37,9 +38,10 @@ class WeatherModule extends Module {
           weatherMapper: i.get(),
         ));
     i.add(GetLocationWeather.new);
-    i.add(LoctionStore.new);
-    i.add(HomeStore.new);
+    i.addLazySingleton(LoctionStore.new);
+    i.addLazySingleton(HomeStore.new);
     i.add<HomeController>(HomeController.new);
+    i.add<DetailsController>(DetailsController.new);
   }
 
   @override
@@ -51,9 +53,10 @@ class WeatherModule extends Module {
       ),
     );
     r.child(
-      '/details',
+      '/details/:city',
       child: (context) => DetailPage(
-        location: r.args.data,
+        city: int.parse(r.args.params['city']),
+        controller: Modular.get<DetailsController>(),
       ),
     );
   }

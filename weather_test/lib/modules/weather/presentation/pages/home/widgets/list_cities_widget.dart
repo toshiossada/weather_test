@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:intl/intl.dart';
 
 import '../../../../domain/entities/location_entity.dart';
 
@@ -19,7 +18,7 @@ class ListCitiesWidget extends StatelessWidget {
       trailing: IconButton(
         icon: const Icon(Icons.navigate_next),
         onPressed: () {
-          Modular.to.pushNamed('details', arguments: location);
+          Modular.to.pushNamed('details/${location.id}');
         },
       ),
       title: Text(
@@ -33,13 +32,10 @@ class ListCitiesWidget extends StatelessWidget {
           itemCount: location.weathers.values.first.length,
           itemBuilder: (context, index) {
             final weather = location.weathers.values.first[index];
-            final f = DateFormat('yyyy-MM-dd hh:mm');
 
             return ListTile(
               leading: Icon(weather.main.icon),
-              title: Text(
-                f.format(weather.dateTime),
-              ),
+              title: Text(weather.time),
               subtitle: Text(weather.description),
               trailing: Text('${weather.temp}°'),
             );

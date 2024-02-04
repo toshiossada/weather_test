@@ -9,12 +9,14 @@ final class LocationMapper extends BaseMapper<LocationEntity, LocationModel> {
       name: model.name,
       latitude: model.latitude,
       longitude: model.longitude,
+      id: model.id,
     );
   }
 
   @override
   LocationModel toModel(LocationEntity entity) {
     return LocationModel(
+      id: entity.id,
       name: entity.name,
       latitude: entity.latitude,
       longitude: entity.longitude,

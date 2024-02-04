@@ -82,7 +82,6 @@ class CommonInterceptor extends InterceptorsWrapper {
           '${response.requestOptions.method}${response.requestOptions.path}';
       var dataCached = await cacheAdapter.get(id);
 
-
       if (dataCached?.date == null ||
           DateTime.now().difference(dataCached?.date ?? DateTime.now()) >
               durationCache) {

@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import '../enums/weather_enum.dart';
 
 class WeatherEntity {
@@ -9,6 +11,18 @@ class WeatherEntity {
   final String description;
   final DateTime dateTime;
   final String _main;
+  String get date {
+    final df = DateFormat('dd/MM/yyyy');
+
+    return df.format(dateTime);
+  }
+
+  String get time {
+    final df = DateFormat('hh:mm');
+
+    return df.format(dateTime);
+  }
+
   WeatherEnum get main => WeatherEnum.fromString(_main);
 
   WeatherEntity({
