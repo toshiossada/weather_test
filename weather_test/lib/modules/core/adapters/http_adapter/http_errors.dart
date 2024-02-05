@@ -1,6 +1,9 @@
-class HttpClientError implements Exception {
+import '../../errors.dart';
+
+class HttpClientError implements Failure {
   final int? statusCode;
   final dynamic data;
+  @override
   final String message;
   final dynamic error;
   final StackTrace? stackTrace;

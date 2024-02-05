@@ -15,11 +15,11 @@ enum WeatherEnum {
         toString().split('.').last.substring(1);
   }
 
-  static WeatherEnum fromString(String value) => switch (value) {
-        'Rain' => WeatherEnum.rain,
-        'Snow' => WeatherEnum.snow,
-        'Clouds' => WeatherEnum.clouds,
-        'Sun' => WeatherEnum.sun,
+  static WeatherEnum fromString(String value) => switch (value.toLowerCase()) {
+        'rain' => WeatherEnum.rain,
+        'snow' => WeatherEnum.snow,
+        'clouds' => WeatherEnum.clouds,
+        'sun' => WeatherEnum.sun,
         _ => WeatherEnum.sun
       };
 }

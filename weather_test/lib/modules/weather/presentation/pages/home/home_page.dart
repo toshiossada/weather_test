@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_modular/flutter_modular.dart';
 
 import 'home_controller.dart';
-import 'home_store.dart';
 import 'widgets/list_cities_widget.dart';
 import 'widgets/search_bar_widget.dart';
 

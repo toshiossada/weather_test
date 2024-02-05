@@ -1,14 +1,16 @@
 import 'dart:io';
 
+typedef CheckInternetLookup = Future<List> Function();
+
 class CheckInternetUsecase {
-  final Future<List> Function() lookup;
+  final CheckInternetLookup lookup;
 
   CheckInternetUsecase({required this.lookup});
 
   Future<bool> call() async {
     try {
       final result = await lookup.call();
-      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+      if (result.isNotEmpty) {
         return true;
       }
     } on SocketException catch (_) {

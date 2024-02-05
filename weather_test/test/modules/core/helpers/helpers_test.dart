@@ -51,7 +51,7 @@ void main() {
   test(
       'Given Map of user '
       'When age is null '
-      'AND age is not allowed null'
+      'AND age is not allowed null '
       'Should throw a RequiredKeysError', () async {
     const value = {
       'name': 'João',
@@ -74,8 +74,8 @@ void main() {
   test(
       'Given Map of user '
       'When map is empty '
-      'AND name is not allowed null'
-      'AND age is not allowed null'
+      'AND name is not allowed null '
+      'AND age is not allowed null '
       'Should throw a RequiredKeysError', () async {
     const value = {
       'name': null,

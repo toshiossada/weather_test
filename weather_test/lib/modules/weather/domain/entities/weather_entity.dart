@@ -11,6 +11,7 @@ class WeatherEntity {
   final String description;
   final DateTime dateTime;
   final String _main;
+
   String get date {
     final df = DateFormat('dd/MM/yyyy');
 
