@@ -1,7 +1,6 @@
 import '../../../../core/helpers/helpers.dart';
 
 class LocationModel {
-
   const LocationModel({
     required this.id,
     required this.name,

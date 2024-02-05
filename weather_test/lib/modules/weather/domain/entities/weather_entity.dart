@@ -1,10 +1,11 @@
+import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 
 import '../enums/weather_enum.dart';
 
+@immutable
 class WeatherEntity {
-
-  WeatherEntity({
+  const WeatherEntity({
     required this.temp,
     required this.feelsLike,
     required this.tempMin,

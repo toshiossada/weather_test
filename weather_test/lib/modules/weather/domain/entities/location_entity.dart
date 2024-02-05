@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'weather_entity.dart';
 
 class LocationEntity {
-
   const LocationEntity({
     this.id = 0,
     this.name = '',

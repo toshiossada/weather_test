@@ -22,9 +22,14 @@ void main() {
       'Given a request GET in Client HTTP to getPosition '
       'When request sucessful '
       'Then should return a LocationModel', (tester) async {
-    when(client.get(
-      '/weather?q=São Paulo,Brazil',
-    ),).thenAnswer((_) async => const HttpResponse(statusCode: 200, data: {
+    when(
+      client.get(
+        '/weather?q=São Paulo,Brazil',
+      ),
+    ).thenAnswer(
+      (_) async => const HttpResponse(
+        statusCode: 200,
+        data: {
           'coord': {'lon': -46.6361, 'lat': -23.5475},
           'weather': [
             {
@@ -58,7 +63,9 @@ void main() {
           'id': 3448439,
           'name': 'São Paulo',
           'cod': 200,
-        },),);
+        },
+      ),
+    );
     final result = await datasource.getPosition('São Paulo', 'Brazil');
 
     expect(result.id, 3448439);
@@ -72,13 +79,15 @@ void main() {
       'Given a request GET in Client HTTP to getPosition '
       'When throws error on request '
       'Then should get a HttpClientError', (tester) async {
-    when(client.get(
-      '/weather?q=São Paulo,Brazil',
-    ),).thenThrow(const HttpClientError(message: 'Erro Teste', statusCode: 500));
+    when(
+      client.get(
+        '/weather?q=São Paulo,Brazil',
+      ),
+    ).thenThrow(const HttpClientError(message: 'Erro Teste', statusCode: 500));
     final result = datasource.getPosition('São Paulo', 'Brazil');
 
     expect(
-      () async => await result,
+      () async => result,
       throwsA(
         predicate(
           (e) =>
@@ -101,9 +110,14 @@ void main() {
       longitude: -46.6361,
     );
 
-    when(client.get(
-      '/weather?lon=${location.longitude}&lat=${location.latitude}&units=metric',
-    ),).thenAnswer((_) async => const HttpResponse(statusCode: 200, data: {
+    when(
+      client.get(
+        '/weather?lon=${location.longitude}&lat=${location.latitude}&units=metric',
+      ),
+    ).thenAnswer(
+      (_) async => const HttpResponse(
+        statusCode: 200,
+        data: {
           'coord': {'lon': -46.6372, 'lat': -23.5471},
           'weather': [
             {
@@ -137,7 +151,9 @@ void main() {
           'id': 3448439,
           'name': 'São Paulo',
           'cod': 200,
-        },),);
+        },
+      ),
+    );
     final result = await datasource.getCurrentWeather(location);
 
     expect(result.main, 'Clear');
@@ -164,9 +180,14 @@ void main() {
       longitude: -46.6361,
     );
 
-    when(client.get(
-      '/forecast?lon=${location.longitude}&lat=${location.latitude}&units=metric',
-    ),).thenAnswer((_) async => const HttpResponse(statusCode: 200, data: {
+    when(
+      client.get(
+        '/forecast?lon=${location.longitude}&lat=${location.latitude}&units=metric',
+      ),
+    ).thenAnswer(
+      (_) async => const HttpResponse(
+        statusCode: 200,
+        data: {
           'cod': '200',
           'message': 0,
           'cnt': 40,
@@ -239,7 +260,9 @@ void main() {
             'sunrise': 1707122873,
             'sunset': 1707169987,
           },
-        },),);
+        },
+      ),
+    );
     final result = await datasource.getNextFiveDaysWeather(location);
 
     expect(result.length, 2);

@@ -1,9 +1,11 @@
 import '../errors.dart';
 
 class RequiredKeysError extends Failure {
-
   RequiredKeysError({
-    required this.objName, required this.map, required this.missingKeys, String? message,
+    required this.objName,
+    required this.map,
+    required this.missingKeys,
+    String? message,
   }) : _message = message;
   final String? _message;
   final Map<String, dynamic> map;
@@ -13,11 +15,11 @@ class RequiredKeysError extends Failure {
   @override
   String get message =>
       _message ??
-      'Trying to deserialize $objName got error. These keys are required: $missingKeys!';
+      'Trying to deserialize $objName got error. '
+          'These keys are required: $missingKeys!';
 }
 
 class DisallowedNullValueError extends Failure {
-
   DisallowedNullValueError({
     required this.keysWithNullValues,
     required this.map,

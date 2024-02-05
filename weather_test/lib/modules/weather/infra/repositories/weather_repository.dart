@@ -7,12 +7,12 @@ import 'models/location_model.dart';
 import 'models/weather_model.dart';
 
 class WeatherRepository implements IWeatherRepository {
-
   const WeatherRepository({
     required this.dataSource,
     required this.locationMapper,
     required this.weatherMapper,
   });
+
   final IWeatherDatasource dataSource;
   final BaseMapper<LocationEntity, LocationModel> locationMapper;
   final BaseMapper<WeatherEntity, WeatherModel> weatherMapper;
@@ -34,7 +34,8 @@ class WeatherRepository implements IWeatherRepository {
 
   @override
   Future<List<WeatherEntity>> getNextFiveDaysWeather(
-      LocationEntity location,) async {
+    LocationEntity location,
+  ) async {
     final locationModel = locationMapper.toModel(location);
     final result = await dataSource.getNextFiveDaysWeather(locationModel);
 
