@@ -1,5 +1,3 @@
-import 'package:flutter/widgets.dart';
-
 import '../../../../core/base_mapper.dart';
 import '../../../domain/entities/location_entity.dart';
 import '../models/location_model.dart';

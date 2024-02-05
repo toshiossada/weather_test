@@ -12,7 +12,7 @@ class CacheHive implements ICacheAdapter {
   CacheHive() {
     _initDb();
   }
-  final completer = Completer<Box>();
+  final _completer = Completer<Box>();
   Future _initDb() async {
     final appDocDirectory = await getApplicationDocumentsDirectory();
     Hive
@@ -20,18 +20,18 @@ class CacheHive implements ICacheAdapter {
       ..registerAdapter(CacheModelDatabaseAdapter());
 
     final box = await Hive.openBox('cache');
-    if (!completer.isCompleted) completer.complete(box);
+    if (!_completer.isCompleted) _completer.complete(box);
   }
 
   @override
   Future<void> put(CacheModel data) async {
-    final box = await completer.future;
+    final box = await _completer.future;
     await box.put(data.id, data.toMap());
   }
 
   @override
   Future<CacheModel?> get(String id) async {
-    final box = await completer.future;
+    final box = await _completer.future;
     final data = await box.get(id);
 
     if (data == null) return null;

@@ -2,8 +2,7 @@ import '../../../domain/entities/location_entity.dart';
 import '../../stores/location_store.dart';
 
 class DetailsController {
-
-  DetailsController(this.locationStore);
+  const DetailsController(this.locationStore);
   final LoctionStore locationStore;
 
   List<LocationEntity> get locations => locationStore.location;

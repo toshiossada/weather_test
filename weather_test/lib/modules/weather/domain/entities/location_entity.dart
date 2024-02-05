@@ -12,6 +12,7 @@ class LocationEntity {
     this.country = '',
     List<WeatherEntity> weathers = const [],
   }) : _weathers = weathers;
+
   final int id;
   final String name;
   final String country;

@@ -34,59 +34,62 @@ void main() {
 
     when(repository.getPosition(state, country))
         .thenAnswer((_) async => location);
-    when(repository.getCurrentWeather(location))
-        .thenAnswer((_) async => WeatherEntity(
-              temp: 10,
-              feelsLike: 12,
-              tempMin: 13,
-              tempMax: 13,
-              humidity: 13,
-              description: 'Testing',
-              dateTime: DateTime(2021, 10, 30, 12, 31, 15),
-              main: 'Rain',
-            ),);
-    when(repository.getNextFiveDaysWeather(location)).thenAnswer((_) async => [
-          WeatherEntity(
-            temp: 10,
-            feelsLike: 12,
-            tempMin: 13,
-            tempMax: 13,
-            humidity: 13,
-            description: 'Testing',
-            dateTime: DateTime(2021, 10, 31, 13, 30),
-            main: 'Sun',
-          ),
-          WeatherEntity(
-            temp: 10,
-            feelsLike: 12,
-            tempMin: 13,
-            tempMax: 13,
-            humidity: 13,
-            description: 'Testing',
-            dateTime: DateTime(2021, 11, 1, 13, 30),
-            main: 'Sun',
-          ),
-          WeatherEntity(
-            temp: 10,
-            feelsLike: 12,
-            tempMin: 13,
-            tempMax: 13,
-            humidity: 13,
-            description: 'Testing',
-            dateTime: DateTime(2021, 11, 2, 13, 30),
-            main: 'Sun',
-          ),
-          WeatherEntity(
-            temp: 10,
-            feelsLike: 12,
-            tempMin: 13,
-            tempMax: 13,
-            humidity: 13,
-            description: 'Testing',
-            dateTime: DateTime(2021, 11, 3, 13, 30),
-            main: 'Sun',
-          ),
-        ],);
+    when(repository.getCurrentWeather(location)).thenAnswer(
+      (_) async => WeatherEntity(
+        temp: 10,
+        feelsLike: 12,
+        tempMin: 13,
+        tempMax: 13,
+        humidity: 13,
+        description: 'Testing',
+        dateTime: DateTime(2021, 10, 30, 12, 31, 15),
+        main: 'Rain',
+      ),
+    );
+    when(repository.getNextFiveDaysWeather(location)).thenAnswer(
+      (_) async => [
+        WeatherEntity(
+          temp: 10,
+          feelsLike: 12,
+          tempMin: 13,
+          tempMax: 13,
+          humidity: 13,
+          description: 'Testing',
+          dateTime: DateTime(2021, 10, 31, 13, 30),
+          main: 'Sun',
+        ),
+        WeatherEntity(
+          temp: 10,
+          feelsLike: 12,
+          tempMin: 13,
+          tempMax: 13,
+          humidity: 13,
+          description: 'Testing',
+          dateTime: DateTime(2021, 11, 1, 13, 30),
+          main: 'Sun',
+        ),
+        WeatherEntity(
+          temp: 10,
+          feelsLike: 12,
+          tempMin: 13,
+          tempMax: 13,
+          humidity: 13,
+          description: 'Testing',
+          dateTime: DateTime(2021, 11, 2, 13, 30),
+          main: 'Sun',
+        ),
+        WeatherEntity(
+          temp: 10,
+          feelsLike: 12,
+          tempMin: 13,
+          tempMax: 13,
+          humidity: 13,
+          description: 'Testing',
+          dateTime: DateTime(2021, 11, 3, 13, 30),
+          main: 'Sun',
+        ),
+      ],
+    );
 
     final result = await getLocationWeather(state, country);
 

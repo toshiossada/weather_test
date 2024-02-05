@@ -5,9 +5,10 @@ import '../../../domain/entities/location_entity.dart';
 import 'details_controller.dart';
 
 class DetailPage extends StatefulWidget {
-
   const DetailPage({
-    required this.city, required this.controller, super.key,
+    required this.city,
+    required this.controller,
+    super.key,
   });
   final int city;
   final DetailsController controller;
@@ -36,6 +37,7 @@ class _DetailPageState extends State<DetailPage> {
           CarouselSlider(
             options: CarouselOptions(
               enableInfiniteScroll: false,
+              viewportFraction: 1,
             ),
             items: location.weathers.keys.map(
               (key) {
@@ -50,21 +52,21 @@ class _DetailPageState extends State<DetailPage> {
                     ],
                   ),
                   subtitle: ListView.builder(
-                      itemCount: location.weathers[key]!.length,
-                      itemBuilder: (_, index) {
-                        final weather = location.weathers[key]![index];
-                        return ListTile(
-                          leading:
-                              Icon(location.weathers[key]![index].main.icon),
-                          subtitle: Text(
-                            location.weathers[key]![index].description,
-                          ),
-                          title: Text(weather.time),
-                          trailing: Text(
-                            '${weather.temp}°',
-                          ),
-                        );
-                      },),
+                    itemCount: location.weathers[key]!.length,
+                    itemBuilder: (_, index) {
+                      final weather = location.weathers[key]![index];
+                      return ListTile(
+                        leading: Icon(location.weathers[key]![index].main.icon),
+                        subtitle: Text(
+                          location.weathers[key]![index].description,
+                        ),
+                        title: Text(weather.time),
+                        trailing: Text(
+                          '${weather.temp}°',
+                        ),
+                      );
+                    },
+                  ),
                 );
               },
             ).toList(),
