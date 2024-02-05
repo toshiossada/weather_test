@@ -1,6 +1,15 @@
 import '../../errors.dart';
 
 class HttpClientError implements Failure {
+
+  const HttpClientError({
+    required this.message, required this.statusCode, this.data,
+    this.error,
+    this.stackTrace,
+    this.requestOptions,
+    this.response,
+    this.type,
+  });
   final int? statusCode;
   final dynamic data;
   @override
@@ -10,15 +19,4 @@ class HttpClientError implements Failure {
   final dynamic requestOptions;
   final dynamic response;
   final dynamic type;
-
-  const HttpClientError({
-    this.data,
-    required this.message,
-    required this.statusCode,
-    this.error,
-    this.stackTrace,
-    this.requestOptions,
-    this.response,
-    this.type,
-  });
 }

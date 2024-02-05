@@ -7,8 +7,6 @@ import '../http_response.dart';
 import 'dio_errors.dart';
 
 class DioAdapter implements IHttpClientAdapter {
-  final Dio dio;
-  final List<InterceptorsWrapper> interceptors;
 
   DioAdapter({
     required this.dio,
@@ -16,6 +14,8 @@ class DioAdapter implements IHttpClientAdapter {
   }) {
     if (interceptors.isNotEmpty) dio.interceptors.addAll(interceptors);
   }
+  final Dio dio;
+  final List<InterceptorsWrapper> interceptors;
 
   @override
   Future<HttpResponse> get(

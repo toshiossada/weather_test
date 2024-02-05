@@ -1,17 +1,14 @@
 import '../errors.dart';
 
 class RequiredKeysError extends Failure {
+
+  RequiredKeysError({
+    required this.objName, required this.map, required this.missingKeys, String? message,
+  }) : _message = message;
   final String? _message;
   final Map<String, dynamic> map;
   final List<String> missingKeys;
   final String objName;
-
-  RequiredKeysError({
-    String? message,
-    required this.objName,
-    required this.map,
-    required this.missingKeys,
-  }) : _message = message;
 
   @override
   String get message =>
@@ -20,10 +17,6 @@ class RequiredKeysError extends Failure {
 }
 
 class DisallowedNullValueError extends Failure {
-  final String? _message;
-  final Map<String, dynamic> map;
-  final List<String> keysWithNullValues;
-  final String objName;
 
   DisallowedNullValueError({
     required this.keysWithNullValues,
@@ -31,6 +24,10 @@ class DisallowedNullValueError extends Failure {
     required this.objName,
     String? message,
   }) : _message = message;
+  final String? _message;
+  final Map<String, dynamic> map;
+  final List<String> keysWithNullValues;
+  final String objName;
 
   @override
   String get message =>

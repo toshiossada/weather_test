@@ -10,7 +10,7 @@ enum WeatherEnum {
 
   final IconData icon;
 
-  capitalize() {
+  String capitalize() {
     return toString().split('.').last[0].toUpperCase() +
         toString().split('.').last.substring(1);
   }

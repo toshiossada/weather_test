@@ -8,13 +8,13 @@ import '../models/cache_model.dart';
 import 'models/cache_model_database.dart';
 
 class CacheHive implements ICacheAdapter {
-  final completer = Completer<Box>();
 
   CacheHive() {
     _initDb();
   }
+  final completer = Completer<Box>();
   Future _initDb() async {
-    var appDocDirectory = await getApplicationDocumentsDirectory();
+    final appDocDirectory = await getApplicationDocumentsDirectory();
     Hive
       ..init(appDocDirectory.path)
       ..registerAdapter(CacheModelDatabaseAdapter());
@@ -26,7 +26,7 @@ class CacheHive implements ICacheAdapter {
   @override
   Future<void> put(CacheModel data) async {
     final box = await completer.future;
-    box.put(data.id, data.toMap());
+    await box.put(data.id, data.toMap());
   }
 
   @override

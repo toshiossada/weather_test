@@ -85,7 +85,6 @@ void main() {
       country: 'BR',
       latitude: -23.5489,
       longitude: -46.6388,
-      weathers: [],
     );
     var newLocation = location.copyWith();
     expect(

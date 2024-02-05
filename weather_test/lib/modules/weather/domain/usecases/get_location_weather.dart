@@ -3,9 +3,9 @@ import '../entities/weather_entity.dart';
 import '../repositories/weather_repository_interface.dart';
 
 class GetLocationWeather {
-  final IWeatherRepository weatherRepository;
 
   const GetLocationWeather(this.weatherRepository);
+  final IWeatherRepository weatherRepository;
 
   Future<LocationEntity> call(String city, String country) async {
     final location = await weatherRepository.getPosition(city, country);

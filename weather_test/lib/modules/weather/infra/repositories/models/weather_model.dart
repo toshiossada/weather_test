@@ -1,14 +1,6 @@
 import '../../../../core/helpers/helpers.dart';
 
 class WeatherModel {
-  final double temp;
-  final double feelsLike;
-  final double tempMin;
-  final double tempMax;
-  final int humidity;
-  final String description;
-  final String main;
-  final DateTime dateTime;
 
   const WeatherModel({
     required this.temp,
@@ -53,14 +45,22 @@ class WeatherModel {
       objName: 'WeatherModel',
     );
     return WeatherModel(
-      temp: (map['main']['temp'] * 1.0),
-      feelsLike: (map['main']['feels_like'] * 1.0),
-      tempMin: (map['main']['temp_min'] * 1.0),
-      tempMax: (map['main']['temp_max'] * 1.0),
+      temp: map['main']['temp'] * 1.0,
+      feelsLike: map['main']['feels_like'] * 1.0,
+      tempMin: map['main']['temp_min'] * 1.0,
+      tempMax: map['main']['temp_max'] * 1.0,
       humidity: map['main']['humidity'],
       description: map['weather'].first['description'],
       main: map['weather'].first['main'],
       dateTime: DateTime.fromMillisecondsSinceEpoch(map['dt'] * 1000),
     );
   }
+  final double temp;
+  final double feelsLike;
+  final double tempMin;
+  final double tempMax;
+  final int humidity;
+  final String description;
+  final String main;
+  final DateTime dateTime;
 }

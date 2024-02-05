@@ -4,9 +4,7 @@ import '../http_errors.dart';
 
 class DioClientError extends HttpClientError implements DioException {
   DioClientError({
-    super.data,
-    required super.message,
-    required super.statusCode,
+    required super.message, required super.statusCode, super.data,
     super.error,
     super.stackTrace,
     super.requestOptions,

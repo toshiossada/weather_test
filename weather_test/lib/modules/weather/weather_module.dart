@@ -27,7 +27,7 @@ class WeatherModule extends Module {
       ];
 
   @override
-  void binds(i) {
+  void binds(Injector i) {
     // i.add<IWeatherRepository>(WeatherRepository.new);
     i
       ..add<BaseMapper<LocationEntity, LocationModel>>(LocationMapper.new)
@@ -37,7 +37,7 @@ class WeatherModule extends Module {
             dataSource: i.get<IWeatherDatasource>(),
             locationMapper: i.get<BaseMapper<LocationEntity, LocationModel>>(),
             weatherMapper: i.get<BaseMapper<WeatherEntity, WeatherModel>>(),
-          ))
+          ),)
       ..add(GetLocationWeather.new)
       ..addLazySingleton(LoctionStore.new)
       ..addLazySingleton(HomeStore.new)
@@ -46,7 +46,7 @@ class WeatherModule extends Module {
   }
 
   @override
-  void routes(r) {
+  void routes(RouteManager r) {
     r
       ..child(
         '/',

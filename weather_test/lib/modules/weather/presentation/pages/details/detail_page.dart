@@ -5,14 +5,12 @@ import '../../../domain/entities/location_entity.dart';
 import 'details_controller.dart';
 
 class DetailPage extends StatefulWidget {
-  final int city;
-  final DetailsController controller;
 
   const DetailPage({
-    super.key,
-    required this.city,
-    required this.controller,
+    required this.city, required this.controller, super.key,
   });
+  final int city;
+  final DetailsController controller;
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -66,7 +64,7 @@ class _DetailPageState extends State<DetailPage> {
                             '${weather.temp}°',
                           ),
                         );
-                      }),
+                      },),
                 );
               },
             ).toList(),

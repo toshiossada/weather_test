@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 class CacheModel {
-  final String id;
-  final DateTime date;
-  final Map<dynamic, dynamic> data;
 
   const CacheModel({
     required this.id,
     required this.date,
     required this.data,
   });
+  final String id;
+  final DateTime date;
+  final Map<dynamic, dynamic> data;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{

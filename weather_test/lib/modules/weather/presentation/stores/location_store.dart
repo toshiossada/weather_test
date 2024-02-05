@@ -15,7 +15,7 @@ class LoctionStore with ChangeNotifier {
   List<LocationEntity> get locationFilteres => _location
       .where((element) =>
           _filter.isEmpty ||
-          element.name.toLowerCase().contains(_filter.toLowerCase()))
+          element.name.toLowerCase().contains(_filter.toLowerCase()),)
       .toList();
 
   void addLocation(LocationEntity value) {

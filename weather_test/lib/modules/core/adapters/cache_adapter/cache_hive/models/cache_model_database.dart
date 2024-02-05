@@ -8,6 +8,12 @@ part 'cache_model_database.g.dart';
 
 @HiveType(typeId: 1)
 class CacheModelDatabase extends HiveObject implements CacheModel {
+
+  CacheModelDatabase({
+    required this.id,
+    required this.data,
+    DateTime? date,
+  }) : date = date ?? DateTime.now();
   @HiveField(0)
   @override
   final String id;
@@ -19,12 +25,6 @@ class CacheModelDatabase extends HiveObject implements CacheModel {
   @HiveField(2)
   @override
   final Map<String, dynamic> data;
-
-  CacheModelDatabase({
-    required this.id,
-    required this.data,
-    DateTime? date,
-  }) : date = date ?? DateTime.now();
 
   @override
   Map<String, dynamic> toMap() {

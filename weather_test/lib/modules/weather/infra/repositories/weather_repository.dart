@@ -7,15 +7,15 @@ import 'models/location_model.dart';
 import 'models/weather_model.dart';
 
 class WeatherRepository implements IWeatherRepository {
-  final IWeatherDatasource dataSource;
-  final BaseMapper<LocationEntity, LocationModel> locationMapper;
-  final BaseMapper<WeatherEntity, WeatherModel> weatherMapper;
 
   const WeatherRepository({
     required this.dataSource,
     required this.locationMapper,
     required this.weatherMapper,
   });
+  final IWeatherDatasource dataSource;
+  final BaseMapper<LocationEntity, LocationModel> locationMapper;
+  final BaseMapper<WeatherEntity, WeatherModel> weatherMapper;
 
   @override
   Future<LocationEntity> getPosition(String city, String country) async {
@@ -34,10 +34,10 @@ class WeatherRepository implements IWeatherRepository {
 
   @override
   Future<List<WeatherEntity>> getNextFiveDaysWeather(
-      LocationEntity location) async {
+      LocationEntity location,) async {
     final locationModel = locationMapper.toModel(location);
     final result = await dataSource.getNextFiveDaysWeather(locationModel);
 
-    return result.map((e) => weatherMapper.toEntity(e)).toList();
+    return result.map(weatherMapper.toEntity).toList();
   }
 }

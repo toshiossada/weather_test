@@ -5,11 +5,10 @@ import 'widgets/list_cities_widget.dart';
 import 'widgets/search_bar_widget.dart';
 
 class HomePage extends StatefulWidget {
-  final HomeController controller;
   const HomePage({
-    super.key,
-    required this.controller,
+    required this.controller, super.key,
   });
+  final HomeController controller;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -38,7 +37,7 @@ class _HomePageState extends State<HomePage> {
         body: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               child: SearchBarWidget(
                 location: controller.locationStore.location,
                 onSearch: (value) {
@@ -60,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                             controller.locationStore.locationFilteres[index],
                       ),
                     );
-                  }),
+                  },),
             ),
             ListenableBuilder(
               listenable: controller.store,

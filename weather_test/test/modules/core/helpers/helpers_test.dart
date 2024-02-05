@@ -23,7 +23,7 @@ void main() {
             e is RequiredKeysError &&
             e.message ==
                 'Trying to deserialize User got error. '
-                    'These keys are required: [age]!')));
+                    'These keys are required: [age]!',),),);
   });
 
   test(
@@ -45,7 +45,7 @@ void main() {
             e is RequiredKeysError &&
             e.message ==
                 'Trying to deserialize User got error. '
-                    'These keys are required: [name, age]!')));
+                    'These keys are required: [name, age]!',),),);
   });
 
   test(
@@ -69,7 +69,7 @@ void main() {
             e is DisallowedNullValueError &&
             e.message ==
                 'Trying to deserialize User got error. '
-                    'These keys had `null` values, which is not allowed: [age]')));
+                    'These keys had `null` values, which is not allowed: [age]',),),);
   });
   test(
       'Given Map of user '
@@ -93,7 +93,7 @@ void main() {
             e is DisallowedNullValueError &&
             e.message ==
                 'Trying to deserialize User got error. '
-                    'These keys had `null` values, which is not allowed: [name, age]')));
+                    'These keys had `null` values, which is not allowed: [name, age]',),),);
   });
 
   test(

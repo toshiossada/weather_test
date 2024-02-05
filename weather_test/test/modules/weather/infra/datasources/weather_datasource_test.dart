@@ -24,14 +24,14 @@ void main() {
       'Then should return a LocationModel', (tester) async {
     when(client.get(
       '/weather?q=São Paulo,Brazil',
-    )).thenAnswer((_) async => const HttpResponse(statusCode: 200, data: {
+    ),).thenAnswer((_) async => const HttpResponse(statusCode: 200, data: {
           'coord': {'lon': -46.6361, 'lat': -23.5475},
           'weather': [
             {
               'id': 800,
               'main': 'Clear',
               'description': 'clear sky',
-              'icon': '01d'
+              'icon': '01d',
             }
           ],
           'base': 'stations',
@@ -41,7 +41,7 @@ void main() {
             'temp_min': 293.9,
             'temp_max': 301.18,
             'pressure': 1022,
-            'humidity': 74
+            'humidity': 74,
           },
           'visibility': 10000,
           'wind': {'speed': 1.54, 'deg': 80},
@@ -52,13 +52,13 @@ void main() {
             'id': 8394,
             'country': 'BR',
             'sunrise': 1707122873,
-            'sunset': 1707169987
+            'sunset': 1707169987,
           },
           'timezone': -10800,
           'id': 3448439,
           'name': 'São Paulo',
-          'cod': 200
-        }));
+          'cod': 200,
+        },),);
     final result = await datasource.getPosition('São Paulo', 'Brazil');
 
     expect(result.id, 3448439);
@@ -74,7 +74,7 @@ void main() {
       'Then should get a HttpClientError', (tester) async {
     when(client.get(
       '/weather?q=São Paulo,Brazil',
-    )).thenThrow(const HttpClientError(message: 'Erro Teste', statusCode: 500));
+    ),).thenThrow(const HttpClientError(message: 'Erro Teste', statusCode: 500));
     final result = datasource.getPosition('São Paulo', 'Brazil');
 
     expect(
@@ -103,14 +103,14 @@ void main() {
 
     when(client.get(
       '/weather?lon=${location.longitude}&lat=${location.latitude}&units=metric',
-    )).thenAnswer((_) async => const HttpResponse(statusCode: 200, data: {
+    ),).thenAnswer((_) async => const HttpResponse(statusCode: 200, data: {
           'coord': {'lon': -46.6372, 'lat': -23.5471},
           'weather': [
             {
               'id': 800,
               'main': 'Clear',
               'description': 'clear sky',
-              'icon': '01d'
+              'icon': '01d',
             }
           ],
           'base': 'stations',
@@ -120,7 +120,7 @@ void main() {
             'temp_min': 20.75,
             'temp_max': 26.72,
             'pressure': 1022,
-            'humidity': 71
+            'humidity': 71,
           },
           'visibility': 10000,
           'wind': {'speed': 1.54, 'deg': 80},
@@ -131,13 +131,13 @@ void main() {
             'id': 8394,
             'country': 'BR',
             'sunrise': 1707122873,
-            'sunset': 1707169987
+            'sunset': 1707169987,
           },
           'timezone': -10800,
           'id': 3448439,
           'name': 'São Paulo',
-          'cod': 200
-        }));
+          'cod': 200,
+        },),);
     final result = await datasource.getCurrentWeather(location);
 
     expect(result.main, 'Clear');
@@ -166,7 +166,7 @@ void main() {
 
     when(client.get(
       '/forecast?lon=${location.longitude}&lat=${location.latitude}&units=metric',
-    )).thenAnswer((_) async => const HttpResponse(statusCode: 200, data: {
+    ),).thenAnswer((_) async => const HttpResponse(statusCode: 200, data: {
           'cod': '200',
           'message': 0,
           'cnt': 40,
@@ -182,14 +182,14 @@ void main() {
                 'sea_level': 1022,
                 'grnd_level': 933,
                 'humidity': 73,
-                'temp_kf': -1.86
+                'temp_kf': -1.86,
               },
               'weather': [
                 {
                   'id': 800,
                   'main': 'Clear',
                   'description': 'clear sky',
-                  'icon': '01d'
+                  'icon': '01d',
                 }
               ],
               'clouds': {'all': 0},
@@ -197,7 +197,7 @@ void main() {
               'visibility': 10000,
               'pop': 0.16,
               'sys': {'pod': 'd'},
-              'dt_txt': '2024-02-05 12:00:00'
+              'dt_txt': '2024-02-05 12:00:00',
             },
             {
               'dt': 1707145200,
@@ -210,14 +210,14 @@ void main() {
                 'sea_level': 1020,
                 'grnd_level': 933,
                 'humidity': 63,
-                'temp_kf': -3.7
+                'temp_kf': -3.7,
               },
               'weather': [
                 {
                   'id': 500,
                   'main': 'Rain',
                   'description': 'light rain',
-                  'icon': '10d'
+                  'icon': '10d',
                 }
               ],
               'clouds': {'all': 22},
@@ -226,7 +226,7 @@ void main() {
               'pop': 0.28,
               'rain': {'3h': 0.12},
               'sys': {'pod': 'd'},
-              'dt_txt': '2024-02-05 15:00:00'
+              'dt_txt': '2024-02-05 15:00:00',
             }
           ],
           'city': {
@@ -237,9 +237,9 @@ void main() {
             'population': 10021295,
             'timezone': -10800,
             'sunrise': 1707122873,
-            'sunset': 1707169987
-          }
-        }));
+            'sunset': 1707169987,
+          },
+        },),);
     final result = await datasource.getNextFiveDaysWeather(location);
 
     expect(result.length, 2);

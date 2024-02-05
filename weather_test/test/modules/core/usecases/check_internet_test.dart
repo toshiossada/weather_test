@@ -8,7 +8,7 @@ void main() {
       'Then should return false', () async {
     final usecase = CheckInternetUsecase(lookup: () async {
       return [];
-    });
+    },);
 
     final result = await usecase();
 
@@ -21,7 +21,7 @@ void main() {
       'Then should return true', () async {
     final usecase = CheckInternetUsecase(lookup: () async {
       return [1];
-    });
+    },);
 
     final result = await usecase();
 

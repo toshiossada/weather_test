@@ -4,15 +4,15 @@ import '../../stores/location_store.dart';
 import 'home_store.dart';
 
 class HomeController {
-  final GetLocationWeather getLocationWeather;
-  final LoctionStore locationStore;
-  final HomeStore store;
 
   const HomeController({
     required this.getLocationWeather,
     required this.store,
     required this.locationStore,
   });
+  final GetLocationWeather getLocationWeather;
+  final LoctionStore locationStore;
+  final HomeStore store;
 
   Future<void> init() async {
     try {

@@ -4,11 +4,10 @@ import '../repositories/models/location_model.dart';
 import '../repositories/models/weather_model.dart';
 
 class WeatherDatasource implements IWeatherDatasource {
-  final IHttpClientAdapter client;
-
   const WeatherDatasource({
     required this.client,
   });
+  final IHttpClientAdapter client;
 
   @override
   Future<LocationModel> getPosition(String city, String country) async {
@@ -41,7 +40,7 @@ class WeatherDatasource implements IWeatherDatasource {
     );
 
     return (request.data['list'] as List)
-        .map((e) => WeatherModel.fromMap(e))
+        .map((map) => WeatherModel.fromMap(map as Map<String, dynamic>))
         .toList();
   }
 }

@@ -9,7 +9,7 @@ void main() {
     final map = {
       'coord': {'lon': -46.6361, 'lat': -23.5475},
       'weather': [
-        {'id': 800, 'main': 'Clear', 'description': 'clear sky', 'icon': '01d'}
+        {'id': 800, 'main': 'Clear', 'description': 'clear sky', 'icon': '01d'},
       ],
       'base': 'stations',
       'main': {
@@ -18,7 +18,7 @@ void main() {
         'temp_min': 293.9,
         'temp_max': 301.18,
         'pressure': 1022,
-        'humidity': 74
+        'humidity': 74,
       },
       'visibility': 10000,
       'wind': {'speed': 1.54, 'deg': 80},
@@ -29,12 +29,12 @@ void main() {
         'id': 8394,
         'country': 'BR',
         'sunrise': 1707122873,
-        'sunset': 1707169987
+        'sunset': 1707169987,
       },
       'timezone': -10800,
       'id': 3448439,
       'name': 'São Paulo',
-      'cod': 200
+      'cod': 200,
     };
 
     final result = LocationModel.fromMap(map);

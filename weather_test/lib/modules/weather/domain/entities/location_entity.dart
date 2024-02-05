@@ -4,12 +4,6 @@ import 'package:intl/intl.dart';
 import 'weather_entity.dart';
 
 class LocationEntity {
-  final int id;
-  final String name;
-  final String country;
-  final double latitude;
-  final double longitude;
-  final List<WeatherEntity> _weathers;
 
   const LocationEntity({
     this.id = 0,
@@ -19,6 +13,12 @@ class LocationEntity {
     this.country = '',
     List<WeatherEntity> weathers = const [],
   }) : _weathers = weathers;
+  final int id;
+  final String name;
+  final String country;
+  final double latitude;
+  final double longitude;
+  final List<WeatherEntity> _weathers;
 
   LocationEntity copyWith({
     int? id,

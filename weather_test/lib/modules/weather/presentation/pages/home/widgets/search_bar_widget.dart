@@ -4,14 +4,12 @@ import '../../../../../core/extensions/diacritics_extension.dart';
 import '../../../../domain/entities/location_entity.dart';
 
 class SearchBarWidget extends StatefulWidget {
-  final List<LocationEntity> location;
-  final Function(String) onSearch;
 
   const SearchBarWidget({
-    super.key,
-    required this.location,
-    required this.onSearch,
+    required this.location, required this.onSearch, super.key,
   });
+  final List<LocationEntity> location;
+  final Function(String) onSearch;
 
   @override
   State<SearchBarWidget> createState() => _SearchBarWidgetState();
@@ -21,13 +19,13 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: SearchAnchor(
           builder: (BuildContext context, SearchController controller) {
         return SearchBar(
           controller: controller,
           padding: const MaterialStatePropertyAll<EdgeInsets>(
-              EdgeInsets.symmetric(horizontal: 16.0)),
+              EdgeInsets.symmetric(horizontal: 16),),
           onTap: () {
             controller.openView();
           },
@@ -50,7 +48,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
                       },
                       icon: const Icon(Icons.clear),
                     ),
-                  )
+                  ),
                 ],
         );
       }, suggestionsBuilder: (context, controller) {
@@ -58,7 +56,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
             .where((element) => element.name.withoutDiacriticalMarks
                 .toLowerCase()
                 .contains(
-                    controller.text.withoutDiacriticalMarks.toLowerCase()))
+                    controller.text.withoutDiacriticalMarks.toLowerCase(),),)
             .toList();
         return List<ListTile>.generate(
           filteres.length,
@@ -75,7 +73,7 @@ class _SearchBarWidgetState extends State<SearchBarWidget> {
             );
           },
         );
-      }),
+      },),
     );
   }
 }

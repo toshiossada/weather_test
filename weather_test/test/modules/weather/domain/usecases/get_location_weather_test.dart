@@ -30,7 +30,6 @@ void main() {
       country: 'Brazil',
       latitude: -23.5489,
       longitude: -46.6388,
-      weathers: [],
     );
 
     when(repository.getPosition(state, country))
@@ -45,7 +44,7 @@ void main() {
               description: 'Testing',
               dateTime: DateTime(2021, 10, 30, 12, 31, 15),
               main: 'Rain',
-            ));
+            ),);
     when(repository.getNextFiveDaysWeather(location)).thenAnswer((_) async => [
           WeatherEntity(
             temp: 10,
@@ -87,7 +86,7 @@ void main() {
             dateTime: DateTime(2021, 11, 3, 13, 30),
             main: 'Sun',
           ),
-        ]);
+        ],);
 
     final result = await getLocationWeather(state, country);
 

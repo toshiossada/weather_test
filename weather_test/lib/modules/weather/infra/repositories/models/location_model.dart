@@ -1,10 +1,6 @@
 import '../../../../core/helpers/helpers.dart';
 
 class LocationModel {
-  final int id;
-  final String name;
-  final double latitude;
-  final double longitude;
 
   const LocationModel({
     required this.id,
@@ -34,4 +30,8 @@ class LocationModel {
       longitude: map['coord']['lon'],
     );
   }
+  final int id;
+  final String name;
+  final double latitude;
+  final double longitude;
 }

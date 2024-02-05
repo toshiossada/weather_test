@@ -10,7 +10,7 @@ class AppModule extends Module {
       ];
 
   @override
-  void routes(r) {
+  void routes(RouteManager r) {
     r.module('/', module: WeatherModule());
   }
 }

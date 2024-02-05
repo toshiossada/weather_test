@@ -3,19 +3,19 @@ abstract class Failure implements Exception {
 }
 
 class MapperError extends Failure {
-  @override
-  final String? message;
 
   MapperError({
     this.message,
   });
+  @override
+  final String? message;
 }
 
 class DesserializeError extends Failure {
-  @override
-  final String? message;
 
   DesserializeError({
     this.message,
   });
+  @override
+  final String? message;
 }

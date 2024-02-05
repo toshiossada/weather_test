@@ -10,15 +10,15 @@ import '../../../cache_adapter/models/cache_model.dart';
 import '../dio_errors.dart';
 
 class CommonInterceptor extends InterceptorsWrapper {
-  final Duration durationCache;
-  final ICacheAdapter cacheAdapter;
-  final CheckInternetUsecase checkInternetUsecase;
 
   CommonInterceptor({
     required this.cacheAdapter,
     required this.checkInternetUsecase,
     this.durationCache = const Duration(minutes: 5),
   });
+  final Duration durationCache;
+  final ICacheAdapter cacheAdapter;
+  final CheckInternetUsecase checkInternetUsecase;
 
   @override
   Future<void> onRequest(
@@ -46,7 +46,7 @@ class CommonInterceptor extends InterceptorsWrapper {
     final online = await checkInternetUsecase();
     if ((options.extra['cached'] ?? false) || !online) {
       final id = '${options.method}${options.path}';
-      var dataCached = await cacheAdapter.get(id);
+      final dataCached = await cacheAdapter.get(id);
 
       if (dataCached?.date != null &&
           (!online ||
@@ -80,7 +80,7 @@ class CommonInterceptor extends InterceptorsWrapper {
     if (response.requestOptions.method == 'GET') {
       final id =
           '${response.requestOptions.method}${response.requestOptions.path}';
-      var dataCached = await cacheAdapter.get(id);
+      final dataCached = await cacheAdapter.get(id);
 
       if (dataCached?.date == null ||
           DateTime.now().difference(dataCached?.date ?? DateTime.now()) >
@@ -92,7 +92,7 @@ class CommonInterceptor extends InterceptorsWrapper {
           date: DateTime.now(),
           id: id,
         );
-        cacheAdapter.put(data);
+        await cacheAdapter.put(data);
       }
     }
 

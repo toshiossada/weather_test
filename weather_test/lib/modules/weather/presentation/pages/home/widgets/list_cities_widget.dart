@@ -4,11 +4,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../../../domain/entities/location_entity.dart';
 
 class ListCitiesWidget extends StatelessWidget {
-  final LocationEntity location;
   const ListCitiesWidget({
-    super.key,
-    required this.location,
+    required this.location, super.key,
   });
+  final LocationEntity location;
 
   @override
   Widget build(BuildContext context) {
