@@ -1,3 +1,4 @@
+import '../../../../core/helpers/helpers_errors.dart';
 import '../../../domain/usecases/get_location_weather.dart';
 import '../../stores/location_store.dart';
 import 'home_store.dart';
@@ -29,8 +30,12 @@ class HomeController {
   }
 
   Future<void> getLocation(String city, String state) async {
-    final result = await getLocationWeather(city, state);
+    try {
+      final result = await getLocationWeather(city, state);
 
-    locationStore.addLocation(result);
+      locationStore.addLocation(result);
+    } on RequiredKeysError catch (e) {
+      print(e.message);
+    }
   }
 }

@@ -1,3 +1,5 @@
+import '../../../../core/helpers/helpers.dart';
+
 class LocationModel {
   final int id;
   final String name;
@@ -12,11 +14,24 @@ class LocationModel {
   });
 
   factory LocationModel.fromMap(Map<String, dynamic> map) {
+    DefaultHelpers.checkKeys(
+      map,
+      requiredKeys: ['id', 'name', 'coord'],
+      disallowNullValues: ['id', 'name', 'coord'],
+      objName: 'LocationModel',
+    );
+    DefaultHelpers.checkKeys(
+      map['coord'],
+      requiredKeys: ['lat', 'lon'],
+      disallowNullValues: ['lat', 'lon'],
+      objName: 'LocationModel',
+    );
+
     return LocationModel(
-      id: (map['id'] ?? 0),
-      name: (map['name'] ?? ''),
-      latitude: (map['coord']?['lat'] ?? 0.0),
-      longitude: (map['coord']?['lon'] ?? 0.0),
+      id: map['id'],
+      name: map['name'],
+      latitude: map['coord']['lat'],
+      longitude: map['coord']['lon'],
     );
   }
 }

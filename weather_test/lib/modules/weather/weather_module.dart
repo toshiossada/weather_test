@@ -34,9 +34,9 @@ class WeatherModule extends Module {
       ..add<BaseMapper<WeatherEntity, WeatherModel>>(WeatherMapper.new)
       ..add<IWeatherDatasource>(WeatherDatasource.new)
       ..add<IWeatherRepository>(() => WeatherRepository(
-            dataSource: i.get(),
-            locationMapper: i.get(),
-            weatherMapper: i.get(),
+            dataSource: i.get<IWeatherDatasource>(),
+            locationMapper: i.get<BaseMapper<LocationEntity, LocationModel>>(),
+            weatherMapper: i.get<BaseMapper<WeatherEntity, WeatherModel>>(),
           ))
       ..add(GetLocationWeather.new)
       ..addLazySingleton(LoctionStore.new)

@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import '../../../../core/helpers/helpers.dart';
 
 class WeatherModel {
   final double temp;
@@ -22,6 +22,36 @@ class WeatherModel {
   });
 
   factory WeatherModel.fromMap(Map<String, dynamic> map) {
+    DefaultHelpers.checkKeys(
+      map,
+      requiredKeys: ['main', 'weather', 'dt'],
+      disallowNullValues: ['main', 'weather', 'dt'],
+      objName: 'WeatherModel',
+    );
+    DefaultHelpers.checkKeys(
+      map['main'],
+      objName: 'WeatherModel',
+      requiredKeys: [
+        'temp',
+        'feels_like',
+        'temp_min',
+        'temp_max',
+        'humidity',
+      ],
+      disallowNullValues: [
+        'temp',
+        'feels_like',
+        'temp_min',
+        'temp_max',
+        'humidity',
+      ],
+    );
+    DefaultHelpers.checkKeys(
+      map['weather'].first,
+      requiredKeys: ['description', 'main'],
+      disallowNullValues: ['description', 'main'],
+      objName: 'WeatherModel',
+    );
     return WeatherModel(
       temp: (map['main']['temp'] * 1.0),
       feelsLike: (map['main']['feels_like'] * 1.0),
