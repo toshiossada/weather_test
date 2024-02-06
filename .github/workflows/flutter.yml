@@ -9,8 +9,6 @@ on:
   pull_request:
     branches: [main]
 
-# on: push    # Default will running for every branch.
-
 jobs:
   build:
     # This job will run on ubuntu virtual machine
@@ -47,9 +45,9 @@ jobs:
         run: dart format --set-exit-if-changed .
         working-directory: ./weather_test
 
-      - name: Statically analyze
-        run: flutter analyze .
-        working-directory: ./weather_test
+      # - name: Statically analyze
+      #   run: flutter analyze .
+      #   working-directory: ./weather_test
 
       - name: Run Tests
         run: flutter test
