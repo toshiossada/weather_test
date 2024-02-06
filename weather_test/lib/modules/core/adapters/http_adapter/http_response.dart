@@ -1,6 +1,6 @@
 /// A class representing the response from an HTTP request.
 ///
-/// This class encapsulates the HTTP response status code and any associated 
+/// This class encapsulates the HTTP response status code and any associated
 /// data
 /// that may have been returned by the server.
 class HttpResponse {

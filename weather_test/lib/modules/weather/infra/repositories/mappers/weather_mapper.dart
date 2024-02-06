@@ -2,13 +2,13 @@ import '../../../../core/base_mapper.dart';
 import '../../../domain/entities/weather_entity.dart';
 import '../models/weather_model.dart';
 
-/// A final class that extends [BaseMapper] to provide mapping 
+/// A final class that extends [BaseMapper] to provide mapping
 /// between [WeatherEntity]
 /// and [WeatherModel].
 ///
-/// This mapper is responsible for converting [WeatherModel] 
+/// This mapper is responsible for converting [WeatherModel]
 /// instances to [WeatherEntity]
-/// instances and vice versa, enabling the separation of domain and 
+/// instances and vice versa, enabling the separation of domain and
 /// presentation layers
 /// for weather-related data.
 final class WeatherMapper extends BaseMapper<WeatherEntity, WeatherModel> {

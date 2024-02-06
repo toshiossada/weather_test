@@ -3,7 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'modules/core/core_module.dart';
 import 'modules/weather/weather_module.dart';
 
-/// The root module of the application that defines the dependency 
+/// The root module of the application that defines the dependency
 /// injection setup and the route structure.
 ///
 /// Usage:

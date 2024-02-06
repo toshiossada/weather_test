@@ -14,13 +14,13 @@ extension DiacriticsAwareString on String {
       'AAAAAAaaaaaaOOOOOOOooooooEEEEEeeeeeeCCccDDdIIIIiiiiLlUUUUUuuuuuNNnnRrSs'
       'TtYYyyZz';
 
-  /// A getter that returns a new string where all diacritical marks are 
+  /// A getter that returns a new string where all diacritical marks are
   /// replaced by
   /// their non-diacritic counterparts.
   ///
-  /// If a character in the string has a diacritical mark, it is replaced 
+  /// If a character in the string has a diacritical mark, it is replaced
   /// with the
-  /// corresponding non-diacritic character from [nonDiacritics]. Characters 
+  /// corresponding non-diacritic character from [nonDiacritics]. Characters
   /// without
   /// diacritics remain unchanged.
   ///

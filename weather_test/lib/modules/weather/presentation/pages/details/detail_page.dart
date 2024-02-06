@@ -25,7 +25,7 @@ class DetailPage extends StatefulWidget {
   /// The identifier of the city for which to display weather details.
   final int city;
 
-  /// The controller that manages the logic for fetching and displaying 
+  /// The controller that manages the logic for fetching and displaying
   /// weather details.
 
   final DetailsController controller;

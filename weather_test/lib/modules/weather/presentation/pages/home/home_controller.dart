@@ -7,7 +7,7 @@ import 'home_store.dart';
 
 /// A controller that manages the business logic for the home page.
 ///
-/// This controller is responsible for initializing the home page with 
+/// This controller is responsible for initializing the home page with
 /// weather data for
 /// predefined locations and updating the UI state accordingly.
 class HomeController {

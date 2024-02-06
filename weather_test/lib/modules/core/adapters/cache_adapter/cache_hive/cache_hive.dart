@@ -7,10 +7,10 @@ import '../cache_adapter.dart';
 import '../models/cache_model.dart';
 import 'models/cache_model_database.dart';
 
-/// A concrete implementation of [ICacheAdapter] using Hive as the underlying 
+/// A concrete implementation of [ICacheAdapter] using Hive as the underlying
 /// storage engine.
 ///
-/// This class provides methods to store and retrieve [CacheModel] instances 
+/// This class provides methods to store and retrieve [CacheModel] instances
 /// from a Hive database.
 class CacheHive implements ICacheAdapter {
   /// Usage:

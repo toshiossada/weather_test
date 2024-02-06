@@ -10,6 +10,7 @@ import 'models/cache_model.dart';
 abstract class ICacheAdapter {
   /// Retrieves a [CacheModel] instance associated with the given [id].
   Future<CacheModel?> get(String id);
+
   /// Update or Insert [CacheModel]
   Future<void> put(CacheModel data);
 }

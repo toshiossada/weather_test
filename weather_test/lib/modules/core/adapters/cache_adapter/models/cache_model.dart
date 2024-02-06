@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-/// A class representing a cache model with an identifier, a timestamp, 
+/// A class representing a cache model with an identifier, a timestamp,
 /// and associated data.
 ///
-/// This model is used to represent cached data entries that include an [id], 
+/// This model is used to represent cached data entries that include an [id],
 /// a [date] for
-/// the timestamp, and the [data] itself, which is a map that can contain any 
+/// the timestamp, and the [data] itself, which is a map that can contain any
 /// type of data.
 class CacheModel {
   // Usage:
