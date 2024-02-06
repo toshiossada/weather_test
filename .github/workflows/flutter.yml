@@ -16,12 +16,12 @@ jobs:
     # This job will run on ubuntu virtual machine
     runs-on: ubuntu-latest
     steps:
-      # Go to project directory
-      - run: cd weather_test
-
       # Setup Checkout
       - name: Checkout
         uses: actions/checkout@v1
+
+      # Go to project directory
+      - run: cd weather_test
 
       # Setup Java environment in order to build the Android app.
       - name: Setup Java
