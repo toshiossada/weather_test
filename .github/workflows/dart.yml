@@ -32,14 +32,13 @@ jobs:
       - run: cd weather_test
 
       # Generate .env
-      - run: echo "${{ secrets.ENV_FILE }}" > .env
-      # - run: |
-      #     touch .env
-      #     echo { >> .env
-      #     echo \"BASE_URL\"=\"https://api.openweathermap.org/data/2.5/\", >> .env
-      #     echo \"API_KEY\"=\"${{ secrets.API_KEY }}\" >> .env
-      #     echo } >> .env
-      #     cat .env
+      - run: |
+          touch .env
+          echo { >> .env
+          echo \"BASE_URL\"=\"https://api.openweathermap.org/data/2.5/\", >> .env
+          echo \"API_KEY\"=\"${{ secrets.API_KEY }}\" >> .env
+          echo } >> .env
+          cat .env
 
       # Get flutter dependencies.
       - run: flutter pub get
