@@ -335,7 +335,6 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    await tester.pumpAndSettle();
     final tile = find.ancestor(
       of: find.text('São Paulo, Brazil'),
       matching: find.byType(ExpansionTile),

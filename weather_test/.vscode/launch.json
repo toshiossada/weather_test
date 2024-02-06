@@ -29,6 +29,22 @@
                 "--dart-define-from-file",
                 ".env"
             ]
+        },
+        {
+            "name": "Run all Tests",
+            "request": "launch",
+            "type": "dart",
+            "program": "./test/"
+        },
+        {
+            "name": "Run all Integration Tests",
+            "request": "launch",
+            "type": "dart",
+            "program": "./integration_test/",
+            "toolArgs": [
+                "--dart-define-from-file",
+                ".env"
+            ]
         }
     ]
 }
