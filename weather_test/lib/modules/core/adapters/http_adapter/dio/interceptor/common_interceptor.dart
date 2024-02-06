@@ -10,7 +10,6 @@ import '../../../cache_adapter/models/cache_model.dart';
 import '../dio_errors.dart';
 
 class CommonInterceptor extends InterceptorsWrapper {
-
   CommonInterceptor({
     required this.cacheAdapter,
     required this.checkInternetUsecase,

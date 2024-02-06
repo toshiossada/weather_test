@@ -3,7 +3,8 @@ import 'helpers_errors.dart';
 class DefaultHelpers {
   static void checkKeys(
     Map<String, dynamic> map, {
-    required String objName, List<String>? requiredKeys,
+    required String objName,
+    List<String>? requiredKeys,
     List<String>? disallowNullValues,
   }) {
     if (requiredKeys != null) {

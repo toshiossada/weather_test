@@ -1,7 +1,6 @@
 import '../../../../core/helpers/helpers.dart';
 
 class WeatherModel {
-
   const WeatherModel({
     required this.temp,
     required this.main,

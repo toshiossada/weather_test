@@ -4,7 +4,6 @@ import '../../stores/location_store.dart';
 import 'home_store.dart';
 
 class HomeController {
-
   const HomeController({
     required this.getLocationWeather,
     required this.store,

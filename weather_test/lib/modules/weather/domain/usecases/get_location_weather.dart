@@ -3,7 +3,6 @@ import '../entities/weather_entity.dart';
 import '../repositories/weather_repository_interface.dart';
 
 class GetLocationWeather {
-
   const GetLocationWeather(this.weatherRepository);
   final IWeatherRepository weatherRepository;
 

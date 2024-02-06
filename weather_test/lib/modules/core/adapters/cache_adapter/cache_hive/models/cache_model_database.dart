@@ -8,7 +8,6 @@ part 'cache_model_database.g.dart';
 
 @HiveType(typeId: 1)
 class CacheModelDatabase extends HiveObject implements CacheModel {
-
   CacheModelDatabase({
     required this.id,
     required this.data,

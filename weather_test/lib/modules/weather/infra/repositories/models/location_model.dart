@@ -1,7 +1,6 @@
 import '../../../../core/helpers/helpers.dart';
 
 class LocationModel {
-
   const LocationModel({
     required this.id,
     required this.name,
@@ -34,5 +33,4 @@ class LocationModel {
   final String name;
   final double latitude;
   final double longitude;
-  
 }

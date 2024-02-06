@@ -7,7 +7,6 @@ import '../http_response.dart';
 import 'dio_errors.dart';
 
 class DioAdapter implements IHttpClientAdapter {
-
   DioAdapter({
     required this.dio,
     this.interceptors = const [],

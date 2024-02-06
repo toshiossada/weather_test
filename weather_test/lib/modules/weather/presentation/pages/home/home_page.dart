@@ -6,7 +6,8 @@ import 'widgets/search_bar_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({
-    required this.controller, super.key,
+    required this.controller,
+    super.key,
   });
   final HomeController controller;
 
@@ -48,18 +49,18 @@ class _HomePageState extends State<HomePage> {
             const Divider(),
             Expanded(
               child: ListenableBuilder(
-                  listenable: controller.locationStore,
-                  builder: (_, widget) {
-                    return ListView.builder(
-                      itemCount:
-                          controller.locationStore.locationFilteres.length,
-                      itemBuilder: (BuildContext context, int index) =>
-                          ListCitiesWidget(
-                        location:
-                            controller.locationStore.locationFilteres[index],
-                      ),
-                    );
-                  },),
+                listenable: controller.locationStore,
+                builder: (_, widget) {
+                  return ListView.builder(
+                    itemCount: controller.locationStore.locationFilteres.length,
+                    itemBuilder: (BuildContext context, int index) =>
+                        ListCitiesWidget(
+                      location:
+                          controller.locationStore.locationFilteres[index],
+                    ),
+                  );
+                },
+              ),
             ),
             ListenableBuilder(
               listenable: controller.store,

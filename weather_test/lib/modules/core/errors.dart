@@ -3,7 +3,6 @@ abstract class Failure implements Exception {
 }
 
 class MapperError extends Failure {
-
   MapperError({
     this.message,
   });
@@ -12,7 +11,6 @@ class MapperError extends Failure {
 }
 
 class DesserializeError extends Failure {
-
   DesserializeError({
     this.message,
   });

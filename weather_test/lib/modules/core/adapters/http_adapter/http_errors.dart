@@ -1,9 +1,10 @@
 import '../../errors.dart';
 
 class HttpClientError implements Failure {
-
   const HttpClientError({
-    required this.message, required this.statusCode, this.data,
+    required this.message,
+    required this.statusCode,
+    this.data,
     this.error,
     this.stackTrace,
     this.requestOptions,

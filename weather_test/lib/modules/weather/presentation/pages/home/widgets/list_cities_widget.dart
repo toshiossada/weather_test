@@ -5,7 +5,8 @@ import '../../../../domain/entities/location_entity.dart';
 
 class ListCitiesWidget extends StatelessWidget {
   const ListCitiesWidget({
-    required this.location, super.key,
+    required this.location,
+    super.key,
   });
   final LocationEntity location;
 

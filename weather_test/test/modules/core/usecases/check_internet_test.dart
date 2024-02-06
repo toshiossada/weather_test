@@ -6,9 +6,11 @@ void main() {
       'Given a CheckInternetUsecase '
       'When lookup return a empty List '
       'Then should return false', () async {
-    final usecase = CheckInternetUsecase(lookup: () async {
-      return [];
-    },);
+    final usecase = CheckInternetUsecase(
+      lookup: () async {
+        return [];
+      },
+    );
 
     final result = await usecase();
 
@@ -19,9 +21,11 @@ void main() {
       'Given a CheckInternetUsecase '
       'When lookup return a items '
       'Then should return true', () async {
-    final usecase = CheckInternetUsecase(lookup: () async {
-      return [1];
-    },);
+    final usecase = CheckInternetUsecase(
+      lookup: () async {
+        return [1];
+      },
+    );
 
     final result = await usecase();
 

@@ -8,7 +8,6 @@ import '../models/cache_model.dart';
 import 'models/cache_model_database.dart';
 
 class CacheHive implements ICacheAdapter {
-
   CacheHive() {
     _initDb();
   }

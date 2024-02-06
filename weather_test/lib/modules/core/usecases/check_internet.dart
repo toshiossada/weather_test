@@ -3,7 +3,6 @@ import 'dart:io';
 typedef CheckInternetLookup = Future<List> Function();
 
 class CheckInternetUsecase {
-
   CheckInternetUsecase({required this.lookup});
   final CheckInternetLookup lookup;
 

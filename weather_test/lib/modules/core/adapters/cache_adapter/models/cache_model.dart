@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 class CacheModel {
-
   const CacheModel({
     required this.id,
     required this.date,
