@@ -6,14 +6,30 @@ import '../http_client_adapter.dart';
 import '../http_response.dart';
 import 'dio_errors.dart';
 
+/// A concrete implementation of [IHttpClientAdapter] using the Dio package.
+///
+/// This adapter class wraps around the Dio instance and allows for custom
+/// interceptors to be added to the Dio client for request, response, and error
+/// interception.
 class DioAdapter implements IHttpClientAdapter {
+  /// Usage:
+  /// ```dart
+  /// DioAdapter(dio: Dio(), interceptors: []);
+  /// ```
   DioAdapter({
     required this.dio,
     this.interceptors = const [],
   }) {
     if (interceptors.isNotEmpty) dio.interceptors.addAll(interceptors);
   }
+
+  /// The Dio instance that will be used for making HTTP requests.
   final Dio dio;
+
+  /// A list of interceptors that will be added to the Dio instance for
+  /// intercepting requests, responses, and errors.
+  ///
+  /// This allows for customization of the HTTP client behavior.
   final List<InterceptorsWrapper> interceptors;
 
   @override

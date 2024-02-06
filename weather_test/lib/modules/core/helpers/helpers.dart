@@ -1,6 +1,26 @@
 import 'helpers_errors.dart';
 
+/// This class contains static methods that can be used throughout the
+/// application
+/// to perform various utility functions such as checking for required keys in
+/// a map.
 class DefaultHelpers {
+  /// Checks if a map contains all the required keys and if certain keys do not
+  /// have null values.
+  ///
+  /// Usage:
+  /// ```dart
+  /// try {
+  ///   DefaultHelpers.checkKeys(
+  ///     {},
+  ///     objName: 'YourObject',
+  ///     requiredKeys: ['key1', 'key2'],
+  ///     disallowNullValues: ['key1'],
+  ///   );
+  /// } on Failure catch (e) {
+  ///   print(e.message);
+  /// }
+  /// ```
   static void checkKeys(
     Map<String, dynamic> map, {
     required String objName,

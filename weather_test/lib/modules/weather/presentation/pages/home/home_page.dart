@@ -4,11 +4,21 @@ import 'home_controller.dart';
 import 'widgets/list_cities_widget.dart';
 import 'widgets/search_bar_widget.dart';
 
+/// A page that displays weather information for various locations
+/// on the home screen.
 class HomePage extends StatefulWidget {
+  /// Usage:
+  /// ```dart
+  ///   HomePage({
+  ///       controller: HomeController(),
+  ///   })
+  /// ```
   const HomePage({
     required this.controller,
     super.key,
   });
+
+  /// The controller that manages the logic for the home page.
   final HomeController controller;
 
   @override

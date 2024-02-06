@@ -6,13 +6,27 @@ import '../../models/cache_model.dart';
 
 part 'cache_model_database.g.dart';
 
+/// A Hive database model that extends [HiveObject] and implements [CacheModel].
+///
+/// This class represents the structure of the cache data that will be stored in
+/// the Hive database. It includes an [id], [data], and [date] to track when
+/// the cache entry was created or updated.
 @HiveType(typeId: 1)
 class CacheModelDatabase extends HiveObject implements CacheModel {
+  /// Usage:
+  /// ```dart
+  /// CacheModelDatabase(
+  ///   id: 'unique_identifier',
+  ///   data: 'cached_data',
+  /// );
+
+  /// ```
   CacheModelDatabase({
     required this.id,
     required this.data,
     DateTime? date,
   }) : date = date ?? DateTime.now();
+
   @HiveField(0)
   @override
   final String id;

@@ -3,10 +3,24 @@ import '../repositories/datasources/weather_datasource_interface.dart';
 import '../repositories/models/location_model.dart';
 import '../repositories/models/weather_model.dart';
 
+/// A data source for weather-related data that implements
+/// the [IWeatherDatasource] interface.
+///
+/// This class is responsible for interacting with an HTTP client to
+/// fetch weather data
+/// from a remote server or API. It uses an [IHttpClientAdapter] to
+/// abstract the details
+/// of network communication.
 class WeatherDatasource implements IWeatherDatasource {
+  /// Usage:
+  /// ```dart
+  /// WeatherDatasource(DioAdapter())
+  /// ```
   const WeatherDatasource({
     required this.client,
   });
+
+  /// The HTTP client adapter used to make network requests.
   final IHttpClientAdapter client;
 
   @override

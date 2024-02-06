@@ -6,15 +6,31 @@ import 'datasources/weather_datasource_interface.dart';
 import 'models/location_model.dart';
 import 'models/weather_model.dart';
 
+/// This class uses a weather data source and mappers to fetch and
+/// convert weather-related
+/// data from a remote source into entities used within the application.
 class WeatherRepository implements IWeatherRepository {
+  /// Usage:
+  /// ```dart
+  /// WeatherRepository(
+  ///   dataSource: WeatherDataSource(),
+  ///   locationMapper: LocationMapper(),
+  ///   weatherMapper: WeatherMapper(),
+  /// )
+  /// ```
   const WeatherRepository({
     required this.dataSource,
     required this.locationMapper,
     required this.weatherMapper,
   });
 
+  /// The data source from which weather data is retrieved.
   final IWeatherDatasource dataSource;
+
+  /// The mapper that converts between [LocationModel] and [LocationEntity].
   final BaseMapper<LocationEntity, LocationModel> locationMapper;
+
+  /// The mapper that converts between [WeatherModel] and [WeatherEntity].
   final BaseMapper<WeatherEntity, WeatherModel> weatherMapper;
 
   @override

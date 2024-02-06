@@ -3,11 +3,21 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../../domain/entities/location_entity.dart';
 
+/// A widget that displays a list of cities and their corresponding
+/// weather information.
 class ListCitiesWidget extends StatelessWidget {
+  /// Usage:
+  /// ```dart
+  ///   ListCitiesWidget({
+  ///       location: LocationEntity(),
+  ///   })
+  /// ```
   const ListCitiesWidget({
     required this.location,
     super.key,
   });
+
+  /// The location entity containing weather information about the city.
   final LocationEntity location;
 
   @override

@@ -2,7 +2,30 @@ import 'package:dio/dio.dart';
 
 import '../http_errors.dart';
 
+/// A custom error class that extends [HttpClientError] and implements
+/// [DioException].
+///
+/// This class provides detailed information about an error that occurs during
+/// a Dio HTTP request, such as the error message, status code, and any
+/// associated
+/// data, error, stack trace, request options, response, and type of Dio
+/// exception.
 class DioClientError extends HttpClientError implements DioException {
+  /// Usage:
+  /// ```dart
+  /// try {
+  ///     //Dio Request
+  ///  } on DioException catch (e) {
+  ///     throw DioClientError(
+  ///       data: e.response?.data,
+  ///       statusCode: e.response?.statusCode ?? 500,
+  ///       type: DioExceptionType.badResponse,
+  ///       message: e.message ?? '',
+  ///       requestOptions: e.requestOptions,
+  ///       stackTrace: e.stackTrace,
+  ///     );
+  /// }
+  /// ```
   DioClientError({
     required super.message,
     required super.statusCode,
@@ -13,6 +36,7 @@ class DioClientError extends HttpClientError implements DioException {
     super.response,
     super.type,
   });
+
   @override
   StackTrace get stackTrace => super.stackTrace!;
 

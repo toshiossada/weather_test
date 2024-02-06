@@ -4,13 +4,30 @@ import 'package:flutter/material.dart';
 import '../../../domain/entities/location_entity.dart';
 import 'details_controller.dart';
 
+/// A page that displays detailed weather information for a specific city.
+///
+/// This [StatefulWidget] takes a city identifier and a [DetailsController] to
+/// manage the retrieval and display of detailed weather information.
 class DetailPage extends StatefulWidget {
+  /// Usage:
+  /// ```dart
+  ///   DetailPage({
+  ///       city: 1,
+  ///       controller: DetailsController(),
+  ///   })
+  /// ```
   const DetailPage({
     required this.city,
     required this.controller,
     super.key,
   });
+
+  /// The identifier of the city for which to display weather details.
   final int city;
+
+  /// The controller that manages the logic for fetching and displaying 
+  /// weather details.
+
   final DetailsController controller;
 
   @override

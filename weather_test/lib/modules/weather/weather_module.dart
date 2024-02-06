@@ -20,6 +20,8 @@ import 'presentation/pages/home/home_page.dart';
 import 'presentation/pages/home/home_store.dart';
 import 'presentation/stores/location_store.dart';
 
+/// A module that provides weather-related functionalities and services for
+/// the application.
 class WeatherModule extends Module {
   @override
   List<Module> get imports => [
@@ -28,7 +30,6 @@ class WeatherModule extends Module {
 
   @override
   void binds(Injector i) {
-    // i.add<IWeatherRepository>(WeatherRepository.new);
     i
       ..add<BaseMapper<LocationEntity, LocationModel>>(LocationMapper.new)
       ..add<BaseMapper<WeatherEntity, WeatherModel>>(WeatherMapper.new)

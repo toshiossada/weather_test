@@ -9,14 +9,33 @@ import '../../../cache_adapter/cache_adapter.dart';
 import '../../../cache_adapter/models/cache_model.dart';
 import '../dio_errors.dart';
 
+/// A Dio interceptor that provides common functionality such as caching and
+/// internet connectivity checks for HTTP requests.
+///
+/// This interceptor can be added to the Dio instance to perform actions before
+/// the request is sent, or after the response is received.
 class CommonInterceptor extends InterceptorsWrapper {
+  /// Usage:
+  /// ```dart
+  /// final dio = Dio();
+  /// dio.interceptors.add(CommonInterceptor(
+  ///   cacheAdapter: yourCacheAdapterInstance,
+  ///   checkInternetUsecase: yourCheckInternetUsecaseInstance,
+  /// ));
+  /// ```
   CommonInterceptor({
     required this.cacheAdapter,
     required this.checkInternetUsecase,
     this.durationCache = const Duration(minutes: 5),
   });
+
+  /// The duration for which the cache data should be considered valid.
   final Duration durationCache;
+
+  /// The adapter responsible for caching data.
   final ICacheAdapter cacheAdapter;
+
+  /// The use case responsible for checking internet connectivity.
   final CheckInternetUsecase checkInternetUsecase;
 
   @override

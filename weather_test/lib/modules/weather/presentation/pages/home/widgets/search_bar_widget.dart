@@ -3,13 +3,26 @@ import 'package:flutter/material.dart';
 import '../../../../../core/extensions/diacritics_extension.dart';
 import '../../../../domain/entities/location_entity.dart';
 
+/// A widget that provides a search bar for finding weather
+/// information by city name.
 class SearchBarWidget extends StatefulWidget {
+  /// Usage:
+  /// ```dart
+  ///   ListCitiesWidget({
+  ///       location: LocationEntity(),
+  ///       onSearch: (value){},
+  ///   })
+  /// ```
   const SearchBarWidget({
     required this.location,
     required this.onSearch,
     super.key,
   });
+
+  /// The list of [LocationEntity] objects used to display search results.
   final List<LocationEntity> location;
+
+  /// The callback function that is called when a search is performed.
   final Function(String) onSearch;
 
   @override

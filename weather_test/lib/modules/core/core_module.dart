@@ -11,6 +11,24 @@ import 'adapters/http_adapter/http_client_adapter.dart';
 import 'consts.dart';
 import 'usecases/check_internet.dart';
 
+/// A module that provides core functionalities and services that are essential
+/// to the application.
+///
+/// This module is intended to be imported by the root module, AppModule, and
+/// it should contain bindings for core services such as networking, local
+/// storage,
+/// and authentication that are used throughout the app.
+///
+/// Usage:
+/// ```dart
+/// class AppModule extends Module {
+///   @override
+///   List<Module> get imports => [
+///         CoreModule(),
+///       ];
+///
+/// }
+/// ```
 class CoreModule extends Module {
   @override
   void exportedBinds(Injector i) {
