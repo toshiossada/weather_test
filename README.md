@@ -19,6 +19,6 @@ This application could run ofline
 
 ## Setup
 
-To run setup project checkout README
+To run setup project checkout [README](./weather_test/README.md)
 
 Check the [Specification](https://gist.github.com/cloudwalk-tests/4689b2c15fd7d9d8d8fa807772d54516)
