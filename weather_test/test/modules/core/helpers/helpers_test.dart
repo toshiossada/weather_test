@@ -81,7 +81,8 @@ void main() {
               e is DisallowedNullValueError &&
               e.message ==
                   'Trying to deserialize User got error. '
-                      'These keys had `null` values, which is not allowed: [age]',
+                      'These keys had `null` values, which is not allowed: '
+                      '[age]',
         ),
       ),
     );
@@ -110,7 +111,8 @@ void main() {
               e is DisallowedNullValueError &&
               e.message ==
                   'Trying to deserialize User got error. '
-                      'These keys had `null` values, which is not allowed: [name, age]',
+                      'These keys had `null` values, which is not allowed: '
+                      '[name, age]',
         ),
       ),
     );
