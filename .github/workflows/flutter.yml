@@ -30,10 +30,7 @@ jobs:
       - name: Generate .env
         run: |
           touch .env
-          echo { >> .env
-          echo \"BASE_URL\": \"https://api.openweathermap.org/data/2.5/\", >> .env
-          echo \"API_KEY\": \"${{ secrets.API_KEY }}\" >> .env
-          echo } >> .env
+          echo "${{ secrets.ENV_FILE }}" > .env
           cat .env
         working-directory: ./weather_test
 
