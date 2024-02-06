@@ -7,6 +7,8 @@ You must to create a [free account](https://home.openweathermap.org/users/sign_u
 
 ## .env
 
+![image](https://github.com/toshiossada/weather_test/assets/2637049/94697fa0-7c42-4df1-9754-05d8c328612d)
+
 After Generate API KEY you will need to create a `.env` file in the root of project basead on [.env-example](.env-example)
 Need to have following context
 
