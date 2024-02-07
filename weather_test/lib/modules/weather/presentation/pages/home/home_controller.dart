@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/helpers/helpers_errors.dart';
+import '../../../../core/adapters/custom_alerts/dialog_adapter.dart';
+import '../../../../core/errors.dart';
 import '../../../domain/usecases/get_location_weather.dart';
 import '../../stores/location_store.dart';
 import 'home_store.dart';
@@ -23,6 +24,7 @@ class HomeController {
     required this.getLocationWeather,
     required this.store,
     required this.locationStore,
+    required this.dialog,
   });
 
   /// The use case for getting weather data for a location.
@@ -33,6 +35,9 @@ class HomeController {
 
   /// The store that holds the state for the home page.
   final HomeStore store;
+
+  /// The dialog adapter that is used to display dialogs and snack bars.
+  final IDialogAdapter dialog;
 
   /// Initializes the controller by fetching weather data for
   /// predefined locations.
@@ -57,7 +62,8 @@ class HomeController {
       final result = await getLocationWeather(city, state);
 
       locationStore.addLocation(result);
-    } on RequiredKeysError catch (e) {
+    } on Failure catch (e) {
+      dialog.alertSnackBar(e.message ?? '');
       debugPrint(e.message);
     }
   }

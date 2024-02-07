@@ -1,10 +1,14 @@
 import 'dart:io';
 
+import 'package:asuka/asuka.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'adapters/cache_adapter/cache_adapter.dart';
 import 'adapters/cache_adapter/cache_hive/cache_hive.dart';
+import 'adapters/custom_alerts/asuka/asuka_dialog.dart';
+import 'adapters/custom_alerts/dialog_adapter.dart';
 import 'adapters/http_adapter/dio/dio_adapter.dart';
 import 'adapters/http_adapter/dio/interceptor/common_interceptor.dart';
 import 'adapters/http_adapter/http_client_adapter.dart';
@@ -70,6 +74,18 @@ class CoreModule extends Module {
         DioAdapter(
           dio: i<Dio>(),
           interceptors: i<List<InterceptorsWrapper>>(),
+        ),
+      )
+      ..addInstance<FShowDialog>((Widget child) {
+        Asuka.showDialog(builder: (context) => child);
+      })
+      ..addInstance<FAlert>((String text) {
+        AsukaSnackbar.alert(text).show();
+      })
+      ..addInstance<IDialogAdapter>(
+        AsukaDialog(
+          fAlert: i.get<FAlert>(),
+          fShowDialog: i.get<FShowDialog>(),
         ),
       );
   }
