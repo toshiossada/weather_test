@@ -1,5 +1,7 @@
 # ARCHTECHTURE
 
+![archtecture](https://github.com/toshiossada/weather_test/assets/2637049/e336557f-ef0a-400b-a62d-64792e0fe984)
+
 The `ARCHTECHTURE` is based on Clean Archtecture split on modules
 
 ![image](https://github.com/toshiossada/weather_test/assets/2637049/4b06aee9-a2d3-40f9-80f2-513a31eb5ded)
