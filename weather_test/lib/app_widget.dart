@@ -10,7 +10,7 @@ class AppWidget extends StatelessWidget {
   ///
   /// ```dart
   ///   AppWidget(
-  ///     title: 'My Smart App',
+  ///     title: 'Global Tour Weather Tracker',
   ///   ),
   /// ```
   ///

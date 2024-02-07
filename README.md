@@ -21,7 +21,7 @@ The app smartly switches to an offline mode when you're not connected, using sav
 
 ## Flutter Modular
 
-For learners and Flutter enthusiasts, this application serves as a practical example of professional development using Flutter Modular. It's crafted to demonstrate best practices and innovative solutions in app development. While this introduction offers a glimpse into the application's architecture, detailed insights and technical discussions are provided in a separate document designed to enrich your understanding and skills in Flutter development. [CHECK OUT](weather_test/ARCHTECTURE.md)
+For learners and Flutter enthusiasts, this application serves as a practical example of professional development using Flutter Modular. It's crafted to demonstrate best practices and innovative solutions in app development. While this introduction offers a glimpse into the application's archtecture, detailed insights and technical discussions are provided in a separate document designed to enrich your understanding and skills in Flutter development. [CHECK OUT](weather_test/ARCHTECTURE.md)
 
 ![Estrutura de pastas Modular](https://user-images.githubusercontent.com/2637049/116998708-018ce100-acb5-11eb-8e28-26b4b6dcd7fe.png)
 
