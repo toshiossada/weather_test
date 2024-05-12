@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Welcome to our Global Tour Weather Tracker, a nifty tool made for tour lovers and tech enthusiasts alike! It's an open-source gem that not only keeps you in the loop with the latest weather for major tour cities but also dazzles with offline magic, keeping you informed even when the internet takes a hike. Crafted with love as a skill showcase, this app is all about mixing practicality with a bit of tech flair. Dive in, explore, and see how tech can make your adventures smoother.
+Welcome to  our Global Tour Weather Tracker, a nifty tool made for tour lovers and tech enthusiasts alike! It's an open-source gem that not only keeps you in the loop with the latest weather for major tour cities but also dazzles with offline magic, keeping you informed even when the internet takes a hike. Crafted with love as a skill showcase, this app is all about mixing practicality with a bit of tech flair. Dive in, explore, and see how tech can make your adventures smoother.
 
 ## Features
 
